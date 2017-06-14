@@ -8,4 +8,6 @@
     <string name="button_next">Next</string>
     <string name="button_play_again">Play Again</string>
     <string name="button_done">Done</string>
+    <string name="category_icon">Category Icon</string>
+    <string name="sub_categories">Sub Categories</string>
 </resources>

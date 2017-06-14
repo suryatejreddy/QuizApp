@@ -69,35 +69,6 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.NumberView
             case 5: viewHolder.itemView.setBackgroundColor(view.getResources().getColor(R.color.red));
                     break;
         }
-
-        switch (viewHolderCount)
-        {
-            case 0: ((ImageView) viewHolder.itemView.findViewById(R.id.icon_category)).setImageResource(R.drawable.ic_gk_icon);
-                    break;
-            case 1: ((ImageView) viewHolder.itemView.findViewById(R.id.icon_category)).setImageResource(R.drawable.ic_entertainment_icon);
-                    break;
-            case 2: ((ImageView) viewHolder.itemView.findViewById(R.id.icon_category)).setImageResource(R.drawable.ic_science_icon);
-                    break;
-            case 3: ((ImageView) viewHolder.itemView.findViewById(R.id.icon_category)).setImageResource(R.drawable.ic_mythology_icon);
-                    break;
-            case 4: ((ImageView) viewHolder.itemView.findViewById(R.id.icon_category)).setImageResource(R.drawable.ic_sports_icon);
-                    break;
-            case 5: ((ImageView) viewHolder.itemView.findViewById(R.id.icon_category)).setImageResource(R.drawable.ic_geography_icon);
-                    break;
-            case 6: ((ImageView) viewHolder.itemView.findViewById(R.id.icon_category)).setImageResource(R.drawable.ic_history_icon);
-                    break;
-            case 7: ((ImageView) viewHolder.itemView.findViewById(R.id.icon_category)).setImageResource(R.drawable.ic_politics_icon);
-                    break;
-            case 8: ((ImageView) viewHolder.itemView.findViewById(R.id.icon_category)).setImageResource(R.drawable.ic_art_icon);
-                    break;
-            case 9: ((ImageView) viewHolder.itemView.findViewById(R.id.icon_category)).setImageResource(R.drawable.ic_celebrity_icon);
-                    break;
-            case 10: ((ImageView) viewHolder.itemView.findViewById(R.id.icon_category)).setImageResource(R.drawable.ic_animal_icon);
-                     break;
-            case 11: ((ImageView) viewHolder.itemView.findViewById(R.id.icon_category)).setImageResource(R.drawable.ic_vehicles_icon);
-                        break;
-
-        }
         viewHolderCount++;
         Log.d(TAG, "onCreateViewHolder: number of ViewHolders created: "
                 + viewHolderCount);
@@ -109,12 +80,62 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.NumberView
     public void onBindViewHolder(NumberViewHolder holder, int position) {
         Log.d(TAG,"#"+position);
         holder.bind(arrayForRecyclerView[position]);
-        if(PlaceholderFragment.mapContainingCategories.get(arrayForRecyclerView[position]).length>1)
+        if(arrayForRecyclerView[position].equals("Entertainment") || arrayForRecyclerView[position].equals("Science"))
         {
             ImageButton im=(ImageButton) holder.itemView.findViewById(R.id.right_button);
             im.setVisibility(View.VISIBLE);
-
         }
+
+        if(arrayForRecyclerView[position].equals("GK"))
+        {
+            ((ImageView) holder.itemView.findViewById(R.id.icon_category)).setImageResource(R.drawable.ic_gk_icon);
+        }
+        else if(arrayForRecyclerView[position].equals("Entertainment"))
+        {
+            ((ImageView) holder.itemView.findViewById(R.id.icon_category)).setImageResource(R.drawable.ic_entertainment_icon);
+        }
+        else if(arrayForRecyclerView[position].equals("Science"))
+        {
+            ((ImageView) holder.itemView.findViewById(R.id.icon_category)).setImageResource(R.drawable.ic_science_icon);
+        }
+        else if(arrayForRecyclerView[position].equals("Mythology"))
+        {
+            ((ImageView) holder.itemView.findViewById(R.id.icon_category)).setImageResource(R.drawable.ic_mythology_icon);
+        }
+        else if(arrayForRecyclerView[position].equals("Sports"))
+        {
+            ((ImageView) holder.itemView.findViewById(R.id.icon_category)).setImageResource(R.drawable.ic_sports_icon);
+        }
+        else if(arrayForRecyclerView[position].equals("Geography"))
+        {
+            ((ImageView) holder.itemView.findViewById(R.id.icon_category)).setImageResource(R.drawable.ic_geography_icon);
+        }
+        else if(arrayForRecyclerView[position].equals("History"))
+        {
+            ((ImageView) holder.itemView.findViewById(R.id.icon_category)).setImageResource(R.drawable.ic_history_icon);
+        }
+        else if(arrayForRecyclerView[position].equals("Politics"))
+        {
+            ((ImageView) holder.itemView.findViewById(R.id.icon_category)).setImageResource(R.drawable.ic_politics_icon);
+        }
+        else if(arrayForRecyclerView[position].equals("Art"))
+        {
+            ((ImageView) holder.itemView.findViewById(R.id.icon_category)).setImageResource(R.drawable.ic_art_icon);
+        }
+        else if(arrayForRecyclerView[position].equals("Celebrities"))
+        {
+            ((ImageView) holder.itemView.findViewById(R.id.icon_category)).setImageResource(R.drawable.ic_celebrity_icon);
+        }
+        else if(arrayForRecyclerView[position].equals("Animals"))
+        {
+            ((ImageView) holder.itemView.findViewById(R.id.icon_category)).setImageResource(R.drawable.ic_animal_icon);
+        }
+        else if(arrayForRecyclerView[position].equals("Vehicles"))
+        {
+            ((ImageView) holder.itemView.findViewById(R.id.icon_category)).setImageResource(R.drawable.ic_vehicles_icon);
+        }
+
+
     }
 
 

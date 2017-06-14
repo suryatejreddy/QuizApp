@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#FF0033</color>
+    <color name="colorPrimary">#D23C3F</color>
     <color name="colorPrimaryDark">#000</color>
     <color name="colorAccent">#FFFFFF</color>
-    <color name="activity_red_background">#FF0033</color>
-    <color name="activity_grey_background">#505050</color>
+    <color name="activity_red_background">#D23C3F</color>
+    <color name="activity_grey_background">#535655</color>
+    <color name="material_red">#CA3433</color>
+    <color name="red">#E53935</color>
+    <color name="material_amber">#FF5722</color>
+    <color name="material_blue">#73B7BA</color>
+    <color name="material_green">#72C418</color>
+    <color name="material_orange">#FE9A00</color>
+    <color name="material_yellow">#FECC35</color>
+    <color name="material_purple">#4074E1</color>
+    <color name="material_pink">#FF4081</color>
 </resources>

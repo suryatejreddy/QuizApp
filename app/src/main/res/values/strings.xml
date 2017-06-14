@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">QuizApp</string>
+    <string name="title_logo">LOGO</string>
+    <string name="title_activity_profile">Profile</string>
+    <string name="title_activity_result">Result</string>
+    <string name="title_activity_GK">GK</string>
+    <string name="title_activity_category">CATEGORIES</string>
+    <string name="button_next">Next</string>
+    <string name="button_play_again">Play Again</string>
+    <string name="button_done">Done</string>
+</resources>

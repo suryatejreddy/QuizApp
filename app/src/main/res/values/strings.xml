@@ -10,4 +10,5 @@
     <string name="button_done">Done</string>
     <string name="category_icon">Category Icon</string>
     <string name="sub_categories">Sub Categories</string>
+    <bool name="is_tablet">false</bool>
 </resources>

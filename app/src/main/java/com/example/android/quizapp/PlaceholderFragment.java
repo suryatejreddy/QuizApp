@@ -4,6 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.ActionBar;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -13,11 +16,10 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.android.quizapp.data.ProfileContract;
 
-import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -44,7 +46,7 @@ public class PlaceholderFragment extends Fragment implements CustomAdapter.ListI
     private CustomAdapter mAdapter;
     private RecyclerView mCategoryList;
     //map containing categories
-    public static HashMap<String, MapObject[]> mapContainingCategories = new HashMap<String, MapObject[]>();
+
     MapObject[] GKObject = new MapObject[]{new MapObject(9, "")};
     MapObject[] EntertainmentObject = new MapObject[]{new MapObject(10, "Books"), new MapObject(11, "Film"), new MapObject(12, "Music"), new MapObject(13, "Musicals & Theatres"), new MapObject(14, "Television"), new MapObject(15, "Video Games"), new MapObject(16, "Board Games"), new MapObject(29, "Comics"), new MapObject(32, "Cartoon & Animations"), new MapObject(31, "Japanese Anime & Manga")};
     MapObject[] ScienceObject = new MapObject[]{new MapObject(17, "Nature"), new MapObject(18, "Computers"), new MapObject(19, "Mathematics"), new MapObject(30, "Gadgets")};
@@ -60,7 +62,8 @@ public class PlaceholderFragment extends Fragment implements CustomAdapter.ListI
 
     private Toast mToast;
 
-    public PlaceholderFragment() {
+    public PlaceholderFragment()
+    {
         setHasOptionsMenu(true);
         //setRetainInstance(true);
     }
@@ -84,20 +87,20 @@ public class PlaceholderFragment extends Fragment implements CustomAdapter.ListI
         mCategoryList.setHasFixedSize(true);
         mAdapter = new CustomAdapter(NUM_LIST_ITEMS, this);
         mCategoryList.setAdapter(mAdapter);
-        mapContainingCategories.put("GK", GKObject);
-        mapContainingCategories.put("Entertainment", EntertainmentObject);
-        mapContainingCategories.put("Science", ScienceObject);
-        mapContainingCategories.put("Mythology", MythologyObject);
-        mapContainingCategories.put("Sports", SportsObject);
-        mapContainingCategories.put("Geography", GeographyObject);
-        mapContainingCategories.put("History", HistoryObject);
-        mapContainingCategories.put("Politics", PoliticsObject);
-        mapContainingCategories.put("Art", ArtObject);
-        mapContainingCategories.put("Celebrities", CelebritiesObject);
-        mapContainingCategories.put("Animals", AnimalsObject);
-        mapContainingCategories.put("Vehicles", VehiclesObject);
+        MainActivity.mapContainingCategories.put("GK", GKObject);
+        MainActivity.mapContainingCategories.put("Entertainment", EntertainmentObject);
+        MainActivity.mapContainingCategories.put("Science", ScienceObject);
+        MainActivity.mapContainingCategories.put("Mythology", MythologyObject);
+        MainActivity.mapContainingCategories.put("Sports", SportsObject);
+        MainActivity.mapContainingCategories.put("Geography", GeographyObject);
+        MainActivity.mapContainingCategories.put("History", HistoryObject);
+        MainActivity.mapContainingCategories.put("Politics", PoliticsObject);
+        MainActivity.mapContainingCategories.put("Art", ArtObject);
+        MainActivity.mapContainingCategories.put("Celebrities", CelebritiesObject);
+        MainActivity.mapContainingCategories.put("Animals", AnimalsObject);
+        MainActivity.mapContainingCategories.put("Vehicles", VehiclesObject);
 
-        for (Map.Entry m : mapContainingCategories.entrySet()) {
+        for (Map.Entry m : MainActivity.mapContainingCategories.entrySet()) {
             //Log.d("myTag","Key: "+m.getKey()+" ,Value: "+m.getValue());
             MapObject[] x = (MapObject[]) m.getValue();
             int i = 0;
@@ -135,6 +138,7 @@ public class PlaceholderFragment extends Fragment implements CustomAdapter.ListI
         return super.onOptionsItemSelected(item);
     }
 
+
     @Override
     public void onListItemClick(int clickedItemIndex) {
         if (mToast != null) {
@@ -147,10 +151,33 @@ public class PlaceholderFragment extends Fragment implements CustomAdapter.ListI
                 break;
             case 1:
                 toastMessage = "Entertainment clicked";
+                SubFragment subFragment=new SubFragment();
+                Bundle args=new Bundle();
+//                MainActivity x=new MainActivity();
+//                x.setActionBarTitle("Entertainment");
+//                android.app.ActionBar actionBar=getActivity().getActionBar();
+//                String x=actionBar.getTitle().toString();
+//                Log.d("actionBar","action bar title: "+x);
+                args.putString("Key","Entertainment");
+                subFragment.setArguments(args);
+                FragmentManager fragmentManager=getFragmentManager();
+                FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
+                fragmentTransaction.setCustomAnimations(R.anim.enter_from_right,R.anim.exit_to_left,R.anim.enter_from_left,R.anim.exit_to_right);
+                fragmentTransaction.replace(R.id.container,subFragment);
+                fragmentTransaction.addToBackStack(null).commit();
                 break;
 
             case 2:
                 toastMessage = "Science clicked";
+                SubFragment subFragment1=new SubFragment();
+                Bundle args1=new Bundle();
+                args1.putString("Key","Science");
+                subFragment1.setArguments(args1);
+                FragmentManager fragmentManager1=getFragmentManager();
+                FragmentTransaction fragmentTransaction1=fragmentManager1.beginTransaction();
+                fragmentTransaction1.setCustomAnimations(R.anim.enter_from_right,R.anim.exit_to_left,R.anim.enter_from_left,R.anim.exit_to_right);
+                fragmentTransaction1.replace(R.id.container,subFragment1);
+                fragmentTransaction1.addToBackStack(null).commit();
                 break;
 
             case 3:

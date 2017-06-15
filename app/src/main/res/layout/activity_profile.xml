@@ -17,9 +17,10 @@
 
 
     <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
         android:layout_gravity="center"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
         android:src="@drawable/ic_profile_default"/>
 
     <EditText
@@ -57,7 +58,7 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:textColor="@android:color/white"
-            android:textSize="20dp" />
+            android:textSize="18sp" />
 
         <FrameLayout
             android:layout_width="wrap_content"
@@ -108,7 +109,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@android:color/white"
-                android:text="M"
+                android:drawableRight="@drawable/man_face"
                 android:textSize="20sp"
                 android:theme="@style/WhiteRadioButton" />
 
@@ -116,8 +117,8 @@
                 android:id="@+id/radButton2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="F"
                 android:textSize="20sp"
+                android:drawableRight="@drawable/woman_face"
                 android:textColor="@android:color/white"
                 android:theme="@style/WhiteRadioButton" />
 
@@ -133,16 +134,22 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"/>
 
-    <TextView
+
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/selectableItemBackground"
-        android:gravity="bottom|center_horizontal"
+        android:background="@color/dark_red">
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ripple_effect_done_button"
+        android:gravity="center_vertical|center_horizontal"
         android:text="@string/button_done"
-        android:clickable="true"
-        android:textIsSelectable="true"
         android:textColor="@android:color/white"
         android:textSize="30dp"
          />
+
+    </FrameLayout>
 
 </LinearLayout>

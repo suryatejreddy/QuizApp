@@ -54,21 +54,6 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.NumberView
         LayoutInflater inflater=LayoutInflater.from(context);
         View view=inflater.inflate(layoutIdForListItem,parent,false);
         NumberViewHolder viewHolder=new NumberViewHolder(view);
-        switch (viewHolderCount%6)
-        {
-            case 0: viewHolder.itemView.setBackgroundColor(view.getResources().getColor(R.color.material_amber));
-                    break;
-           case 1: viewHolder.itemView.setBackgroundColor(view.getResources().getColor(R.color.material_green));
-                    break;
-            case 2: viewHolder.itemView.setBackgroundColor(view.getResources().getColor(R.color.material_orange));
-                    break;
-            case 3: viewHolder.itemView.setBackgroundColor(view.getResources().getColor(R.color.material_purple));
-                    break;
-            case 4: viewHolder.itemView.setBackgroundColor(view.getResources().getColor(R.color.material_yellow));
-                    break;
-            case 5: viewHolder.itemView.setBackgroundColor(view.getResources().getColor(R.color.red));
-                    break;
-        }
         viewHolderCount++;
         Log.d(TAG, "onCreateViewHolder: number of ViewHolders created: "
                 + viewHolderCount);
@@ -80,11 +65,67 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.NumberView
     public void onBindViewHolder(NumberViewHolder holder, int position) {
         Log.d(TAG,"#"+position);
         holder.bind(arrayForRecyclerView[position]);
+        ImageButton im=(ImageButton) holder.itemView.findViewById(R.id.right_button);
         if(arrayForRecyclerView[position].equals("Entertainment") || arrayForRecyclerView[position].equals("Science"))
         {
-            ImageButton im=(ImageButton) holder.itemView.findViewById(R.id.right_button);
             im.setVisibility(View.VISIBLE);
+
         }
+
+        else
+        {
+            im.setVisibility(View.GONE);
+        }
+
+        if(arrayForRecyclerView[position].equals("GK"))
+        {
+            holder.itemView.setBackgroundColor(holder.itemView.getResources().getColor(R.color.red));
+        }
+        else if(arrayForRecyclerView[position].equals("Entertainment"))
+        {
+            holder.itemView.setBackgroundColor(holder.itemView.getResources().getColor(R.color.material_yellow));
+        }
+        else if(arrayForRecyclerView[position].equals("Science"))
+        {
+            holder.itemView.setBackgroundColor(holder.itemView.getResources().getColor(R.color.material_purple));
+        }
+        else if(arrayForRecyclerView[position].equals("Mythology"))
+        {
+            holder.itemView.setBackgroundColor(holder.itemView.getResources().getColor(R.color.material_orange));
+        }
+        else if(arrayForRecyclerView[position].equals("Sports"))
+        {
+            holder.itemView.setBackgroundColor(holder.itemView.getResources().getColor(R.color.material_green));
+        }
+        else if(arrayForRecyclerView[position].equals("Geography"))
+        {
+            holder.itemView.setBackgroundColor(holder.itemView.getResources().getColor(R.color.material_amber));
+        }
+        else if(arrayForRecyclerView[position].equals("History"))
+        {
+            holder.itemView.setBackgroundColor(holder.itemView.getResources().getColor(R.color.red));
+        }
+        else if(arrayForRecyclerView[position].equals("Politics"))
+        {
+            holder.itemView.setBackgroundColor(holder.itemView.getResources().getColor(R.color.material_yellow));
+        }
+        else if(arrayForRecyclerView[position].equals("Art"))
+        {
+            holder.itemView.setBackgroundColor(holder.itemView.getResources().getColor(R.color.material_purple));
+        }
+        else if(arrayForRecyclerView[position].equals("Celebrities"))
+        {
+            holder.itemView.setBackgroundColor(holder.itemView.getResources().getColor(R.color.material_orange));
+        }
+        else if(arrayForRecyclerView[position].equals("Animals"))
+        {
+            holder.itemView.setBackgroundColor(holder.itemView.getResources().getColor(R.color.material_green));
+        }
+        else if(arrayForRecyclerView[position].equals("Vehicles"))
+        {
+            holder.itemView.setBackgroundColor(holder.itemView.getResources().getColor(R.color.material_amber));
+        }
+
 
         if(arrayForRecyclerView[position].equals("GK"))
         {

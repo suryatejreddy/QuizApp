@@ -1,5 +1,6 @@
 package com.example.android.quizapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -9,9 +10,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
+
+import com.example.android.quizapp.data.ProfileContract;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -57,7 +61,15 @@ public class PlaceholderFragment extends Fragment implements CustomAdapter.ListI
     private Toast mToast;
 
     public PlaceholderFragment() {
+        setHasOptionsMenu(true);
+        //setRetainInstance(true);
+    }
 
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+//        setHasOptionsMenu(true);
     }
 
     @Nullable
@@ -100,6 +112,27 @@ public class PlaceholderFragment extends Fragment implements CustomAdapter.ListI
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+    }
+
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        menu.clear();
+        Log.d("thug","onCreateOptionsMenu called");
+        inflater.inflate(R.menu.menu_category,menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id=item.getItemId();
+        if(id==R.id.profile_activity_open)
+        {
+            Intent intent=new Intent(getContext(),ProfileActivity.class);
+            startActivity(intent);
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

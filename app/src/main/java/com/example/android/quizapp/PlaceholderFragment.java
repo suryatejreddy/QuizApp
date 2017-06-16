@@ -42,7 +42,8 @@ class MapObject
 public class PlaceholderFragment extends Fragment implements CustomAdapter.ListItemClickListener {
 
     private static final int NUM_LIST_ITEMS = 12;
-
+    public static int PASS_TO_MAIN_FORSUB_CATEGORY;
+    private static boolean viewInDisplay=false;
     private CustomAdapter mAdapter;
     private RecyclerView mCategoryList;
     //map containing categories
@@ -147,82 +148,91 @@ public class PlaceholderFragment extends Fragment implements CustomAdapter.ListI
         String toastMessage;
         switch (clickedItemIndex) {
             case 0:
-                toastMessage = "GK clicked";
+                toastMessage = "GK";
                 break;
             case 1:
-                toastMessage = "Entertainment clicked";
-                SubFragment subFragment=new SubFragment();
-                Bundle args=new Bundle();
-//                MainActivity x=new MainActivity();
-//                x.setActionBarTitle("Entertainment");
-//                android.app.ActionBar actionBar=getActivity().getActionBar();
-//                String x=actionBar.getTitle().toString();
-//                Log.d("actionBar","action bar title: "+x);
-                args.putString("Key","Entertainment");
-                subFragment.setArguments(args);
-                FragmentManager fragmentManager=getFragmentManager();
-                FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
-                fragmentTransaction.setCustomAnimations(R.anim.enter_from_right,R.anim.exit_to_left,R.anim.enter_from_left,R.anim.exit_to_right);
-                fragmentTransaction.replace(R.id.container,subFragment);
-                fragmentTransaction.addToBackStack(null).commit();
-                break;
-
-            case 2:
-                toastMessage = "Science clicked";
+                PASS_TO_MAIN_FORSUB_CATEGORY=1;
                 SubFragment subFragment1=new SubFragment();
                 Bundle args1=new Bundle();
-                args1.putString("Key","Science");
+
+                args1.putString("Key","Entertainment");
                 subFragment1.setArguments(args1);
                 FragmentManager fragmentManager1=getFragmentManager();
                 FragmentTransaction fragmentTransaction1=fragmentManager1.beginTransaction();
                 fragmentTransaction1.setCustomAnimations(R.anim.enter_from_right,R.anim.exit_to_left,R.anim.enter_from_left,R.anim.exit_to_right);
-                fragmentTransaction1.replace(R.id.container,subFragment1);
+                if(!MainActivity.mTwoPane)
+                    fragmentTransaction1.replace(R.id.container,subFragment1);
+                else
+                    fragmentTransaction1.replace(R.id.sub_category_container,subFragment1);
                 fragmentTransaction1.addToBackStack(null).commit();
+                toastMessage="";
+                break;
+
+            case 2:
+                PASS_TO_MAIN_FORSUB_CATEGORY=2;
+                SubFragment subFragment2=new SubFragment();
+                Bundle args2=new Bundle();
+
+                args2.putString("Key","Science");
+                subFragment2.setArguments(args2);
+                FragmentManager fragmentManager2=getFragmentManager();
+                FragmentTransaction fragmentTransaction2=fragmentManager2.beginTransaction();
+                fragmentTransaction2.setCustomAnimations(R.anim.enter_from_right,R.anim.exit_to_left,R.anim.enter_from_left,R.anim.exit_to_right);
+                if(!MainActivity.mTwoPane)
+                    fragmentTransaction2.replace(R.id.container,subFragment2);
+                else
+                {
+                    fragmentTransaction2.replace(R.id.sub_category_container, subFragment2);
+                }
+                fragmentTransaction2.addToBackStack(null).commit();
+                toastMessage = "";
                 break;
 
             case 3:
-                toastMessage = "Mythology clicked";
+                toastMessage = "Mythology";
                 break;
 
             case 4:
-                toastMessage =  "Sports clicked";
+                toastMessage =  "Sports";
                 break;
 
             case 5:
-                toastMessage = "Geography clicked";
+                toastMessage = "Geography";
                 break;
 
             case 6:
-                toastMessage =  "History clicked";
+                toastMessage =  "History";
                 break;
 
             case 7:
-                toastMessage =  "Politics clicked";
+                toastMessage =  "Politics";
                 break;
 
             case 8:
-                toastMessage =  "Art clicked";
+                toastMessage =  "Art";
                 break;
 
             case 9:
-                toastMessage ="Celebrities clicked";
+                toastMessage ="Celebrities";
                 break;
 
             case 10:
-                toastMessage =  "Animals clicked";
+                toastMessage =  "Animals";
                 break;
 
             case 11:
-                toastMessage =  "Vehicles clicked";
+                toastMessage =  "Vehicles";
                 break;
 
             default:
                 toastMessage = "";
         }
         if (!toastMessage.equals("")) {
-            mToast = Toast.makeText(getContext(), toastMessage, Toast.LENGTH_SHORT);
-            mToast.show();
-
+            //mToast = Toast.makeText(getContext(), toastMessage, Toast.LENGTH_SHORT);
+            //mToast.show();
+            Intent intent=new Intent(getContext(),QuizActivity.class);
+            intent.putExtra("ActionBar",toastMessage);
+            startActivity(intent);
         }
     }
 }

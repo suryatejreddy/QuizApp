@@ -53,54 +53,55 @@ public class SubFragment extends Fragment implements SubCustomAdapter.ListItemCl
             NUM_LIST_ITEMS=4;
         }
 
-        rootView.setFocusableInTouchMode(true);
-        rootView.requestFocus();
-        rootView.setOnKeyListener(new View.OnKeyListener() {
-            @Override
-            public boolean onKey(View v, int keyCode, KeyEvent event) {
-                Log.i("actionBar","keyCode: "+keyCode);
-                if(((MainActivity) mContext).findViewById(R.id.app_bar_main_view)!=null)
-                {
-                    ((TextView) ((MainActivity) mContext).findViewById(R.id.app_bar_main_view)).setText("CATEGORIES");
+
+        if(!MainActivity.mTwoPane) {
+            rootView.setFocusableInTouchMode(true);
+            rootView.requestFocus();
+            rootView.setOnKeyListener(new View.OnKeyListener() {
+                @Override
+                public boolean onKey(View v, int keyCode, KeyEvent event) {
+                    Log.i("actionBar", "keyCode: " + keyCode);
+                    if (((MainActivity) mContext).findViewById(R.id.app_bar_main_view) != null) {
+                        ((TextView) ((MainActivity) mContext).findViewById(R.id.app_bar_main_view)).setText("CATEGORIES");
+                    }
+                    ((MainActivity) mContext).getSupportActionBar().setDisplayShowHomeEnabled(false);
+                    ((MainActivity) mContext).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+                    if (keyCode == KeyEvent.KEYCODE_BACK) {
+                        Log.i("actionBar", "onKeyListener is working");
+                        getFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+                        return true;
+                    } else {
+                        return false;
+                    }
                 }
-                ((MainActivity) mContext).getSupportActionBar().setDisplayShowHomeEnabled(false);
-                ((MainActivity) mContext).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-                if(keyCode==KeyEvent.KEYCODE_BACK)
-                {
-                    Log.i("actionBar","onKeyListener is working");
-                    getFragmentManager().popBackStack(null,FragmentManager.POP_BACK_STACK_INCLUSIVE);
-                    return true;
-                }
-                else {
-                    return false;
-                }
-                }
-        });
-
-
-
-        mContext=getActivity();
-        ((MainActivity) mContext).getSupportActionBar().getTitle();
-        //TextView actionBarTextView=(TextView) view.findViewById(R.id.app_bar_main_view);
-        Log.d("actionBar","Fragment, "+String.valueOf((TextView) ((MainActivity) mContext).findViewById(R.id.app_bar_main_view)==null));
-
-        if(((MainActivity) mContext).findViewById(R.id.app_bar_main_view)!=null && NUM_LIST_ITEMS==10)
-        {
-            ((TextView) ((MainActivity) mContext).findViewById(R.id.app_bar_main_view)).setText("ENTERTAINMENT");
-            ((MainActivity) mContext).getSupportActionBar().setDisplayShowHomeEnabled(true);
-            ((MainActivity) mContext).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            ((MainActivity) mContext).getSupportActionBar().setHomeAsUpIndicator(getResources().getDrawable(R.drawable.ic_back_button));
-            Log.d("HII","Entertainment");
-
+            });
         }
 
-        else if(((MainActivity) mContext).findViewById(R.id.app_bar_main_view)!=null && NUM_LIST_ITEMS==4)
-        {
-            ((TextView) ((MainActivity) mContext).findViewById(R.id.app_bar_main_view)).setText("SCIENCE");
-            ((MainActivity) mContext).getSupportActionBar().setDisplayShowHomeEnabled(true);
-            ((MainActivity) mContext).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            ((MainActivity) mContext).getSupportActionBar().setHomeAsUpIndicator(getResources().getDrawable(R.drawable.ic_back_button));
-            Log.d("HII","Science");
+
+
+
+        if(!MainActivity.mTwoPane) {
+
+            mContext = getActivity();
+            ((MainActivity) mContext).getSupportActionBar().getTitle();
+            //TextView actionBarTextView=(TextView) view.findViewById(R.id.app_bar_main_view);
+            Log.d("actionBar", "Fragment, " + String.valueOf((TextView) ((MainActivity) mContext).findViewById(R.id.app_bar_main_view) == null));
+
+            if (((MainActivity) mContext).findViewById(R.id.app_bar_main_view) != null && NUM_LIST_ITEMS == 10) {
+                ((TextView) ((MainActivity) mContext).findViewById(R.id.app_bar_main_view)).setText("ENTERTAINMENT");
+                ((MainActivity) mContext).getSupportActionBar().setDisplayShowHomeEnabled(true);
+                ((MainActivity) mContext).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+                ((MainActivity) mContext).getSupportActionBar().setHomeAsUpIndicator(getResources().getDrawable(R.drawable.ic_back_button));
+                Log.d("HII", "Entertainment");
+
+            } else if (((MainActivity) mContext).findViewById(R.id.app_bar_main_view) != null && NUM_LIST_ITEMS == 4) {
+                ((TextView) ((MainActivity) mContext).findViewById(R.id.app_bar_main_view)).setText("SCIENCE");
+                ((MainActivity) mContext).getSupportActionBar().setDisplayShowHomeEnabled(true);
+                ((MainActivity) mContext).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+                ((MainActivity) mContext).getSupportActionBar().setHomeAsUpIndicator(getResources().getDrawable(R.drawable.ic_back_button));
+                Log.d("HII", "Science");
+            }
+
         }
 
 //        if((((MainActivity) mContext).getSupportActionBar()!=null) && NUM_LIST_ITEMS==10)
@@ -158,7 +159,7 @@ public class SubFragment extends Fragment implements SubCustomAdapter.ListItemCl
             return true;
         }
 
-        if(id==android.R.id.home)
+        if(id==android.R.id.home && !MainActivity.mTwoPane)
         {
             //Toast.makeText(getContext(),"Home clicked",Toast.LENGTH_SHORT).show();
             Log.d("actionBar","Home clicked");
@@ -189,51 +190,54 @@ public class SubFragment extends Fragment implements SubCustomAdapter.ListItemCl
 
             switch (clickedItemListIndex) {
                 case 0:
-                    toastMessage = "Books clicked";
+                    toastMessage = "Books";
 
                     break;
                 case 1:
-                    toastMessage = "Film clicked";
+                    toastMessage = "Film";
                     break;
 
                 case 2:
-                    toastMessage = "Music clicked";
+                    toastMessage = "Music";
                     break;
 
                 case 3:
-                    toastMessage = "Musicals & Theatres clicked";
+                    toastMessage = "Musicals & Theatres";
                     break;
 
                 case 4:
-                    toastMessage = "Television clicked";
+                    toastMessage = "Television";
                     break;
 
                 case 5:
-                    toastMessage = "Video Games clicked";
+                    toastMessage = "Video Games";
                     break;
 
                 case 6:
-                    toastMessage = "Board Games clicked";
+                    toastMessage = "Board Games";
                     break;
 
                 case 7:
-                    toastMessage = "Comics clicked";
+                    toastMessage = "Comics";
                     break;
 
                 case 8:
-                    toastMessage = "Cartoon & Animations clicked";
+                    toastMessage = "Cartoon & Animations";
                     break;
 
                 case 9:
-                    toastMessage = "Japanese Anime & Manga clicked";
+                    toastMessage = "Japanese Anime & Manga";
                     break;
 
                 default:
                     toastMessage = "";
             }
             if (!toastMessage.equals("")) {
-                mToast = Toast.makeText(getContext(), toastMessage, Toast.LENGTH_SHORT);
-                mToast.show();
+                //mToast = Toast.makeText(getContext(), toastMessage, Toast.LENGTH_SHORT);
+                //mToast.show();
+                Intent intent=new Intent(getContext(),QuizActivity.class);
+                intent.putExtra("ActionBar",toastMessage);
+                startActivity(intent);
             }
         }
 
@@ -242,16 +246,16 @@ public class SubFragment extends Fragment implements SubCustomAdapter.ListItemCl
 
             switch (clickedItemListIndex)
             {
-                case 0:toastMessage="Nature Clicked";
+                case 0:toastMessage="Nature";
                     break;
 
-                case 1:toastMessage="Computers clicked";
+                case 1:toastMessage="Computers";
                     break;
 
-                case 2:toastMessage="Mathematics clicked";
+                case 2:toastMessage="Mathematics";
                     break;
 
-                case 3:toastMessage="Gadgets clicked";
+                case 3:toastMessage="Gadgets";
                     break;
 
                 default:toastMessage="";
@@ -259,8 +263,11 @@ public class SubFragment extends Fragment implements SubCustomAdapter.ListItemCl
 
             if(!toastMessage.equals(""))
             {
-                mToast=Toast.makeText(getContext(),toastMessage,Toast.LENGTH_SHORT);
-                mToast.show();
+                //mToast=Toast.makeText(getContext(),toastMessage,Toast.LENGTH_SHORT);
+                //mToast.show();
+                Intent intent=new Intent(getContext(),QuizActivity.class);
+                intent.putExtra("ActionBar",toastMessage);
+                startActivity(intent);
             }
         }
     }

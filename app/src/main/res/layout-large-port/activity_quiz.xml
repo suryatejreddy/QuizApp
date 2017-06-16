@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.android.quizapp.QuizActivity">
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:padding="25dp"
+        android:background="@color/activity_grey_background">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Q -Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+            android:textColor="@android:color/white"
+            android:textSize="25sp"
+            />
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/activity_red_background"
+        android:layout_weight="0.8"
+        android:weightSum="4"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        android:orientation="vertical"
+        >
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:layout_weight="1"
+            android:background="@color/dark_red">
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                android:layout_gravity="center"
+                android:textColor="@android:color/white"
+                android:text="A.Lorem ipsum dolor sit amet. "
+                android:background="?attr/selectableItemBackgroundBorderless"/>
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:layout_weight="1"
+            android:background="@color/dark_red">
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                android:layout_gravity="center"
+                android:textColor="@android:color/white"
+                android:text="B.Lorem ipsum dolor sit amet. "
+                android:background="?attr/selectableItemBackgroundBorderless"/>
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/dark_red"
+            android:layout_weight="1"
+            android:layout_margin="16dp">
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                android:layout_gravity="center"
+                android:textColor="@android:color/white"
+                android:text="C.Lorem ipsum dolor sit amet. "
+                android:background="?attr/selectableItemBackgroundBorderless"/>
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:layout_weight="1"
+            android:background="@color/dark_red">
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:textSize="20sp"
+                android:textColor="@android:color/white"
+                android:text="D.Lorem ipsum dolor sit amet. "
+                android:background="?attr/selectableItemBackgroundBorderless"/>
+
+        </FrameLayout>
+
+
+
+
+    </LinearLayout>
+
+
+
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/activity_grey_background">
+
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:progress="20"
+            android:progressDrawable="@drawable/green_progress"
+            android:layout_height="wrap_content" />
+
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/activity_grey_background">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textAllCaps="false"
+            android:textSize="30sp"
+            android:textColor="@android:color/white"
+            android:text="@string/button_next"
+            android:background="?attr/selectableItemBackgroundBorderless"/>
+
+    </FrameLayout>
+
+</LinearLayout>

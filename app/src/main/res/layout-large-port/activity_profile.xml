@@ -20,14 +20,15 @@
         android:layout_width="125dp"
         android:layout_height="125dp"
         android:layout_gravity="center"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_marginTop="100dp"
         android:src="@drawable/ic_profile_default"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Name"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:textSize="30sp"
+        android:layout_marginTop="50dp"
         android:textColor="@android:color/white"
         android:textColorHint="@android:color/white" />
 
@@ -35,6 +36,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginTop="50dp"
         android:background="@color/activity_grey_background"
         android:orientation="horizontal">
 
@@ -42,6 +44,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="Age"
+            android:textSize="30sp"
 
             android:inputType="number"
             android:maxLength="2"
@@ -54,11 +57,11 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:text="Gender"
-           android:layout_weight="1"
+            android:layout_weight="1"
             android:layout_gravity="center"
             android:gravity="center"
             android:textColor="@android:color/white"
-            android:textSize="18sp" />
+            android:textSize="30sp" />
 
         <FrameLayout
             android:layout_width="wrap_content"
@@ -66,63 +69,63 @@
             android:layout_gravity="center"
             >
 
-        <!--<LinearLayout-->
+            <!--<LinearLayout-->
             <!--android:layout_width="match_parent"-->
             <!--android:layout_height="wrap_content"-->
             <!--android:orientation="horizontal"-->
             <!--android:weightSum="2">-->
 
             <!--<Button-->
-                <!--android:id="@+id/buttonP1"-->
-                <!--style="?android:attr/buttonBarButtonStyle"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_weight="1"-->
-                <!--android:background="@color/activity_grey_background"-->
-                <!--android:text="M"-->
-                <!--android:textSize="15sp"-->
-                <!--android:textColor="@android:color/white" />-->
+            <!--android:id="@+id/buttonP1"-->
+            <!--style="?android:attr/buttonBarButtonStyle"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--android:background="@color/activity_grey_background"-->
+            <!--android:text="M"-->
+            <!--android:textSize="15sp"-->
+            <!--android:textColor="@android:color/white" />-->
 
             <!--<Button-->
-                <!--android:id="@+id/buttonP2"-->
-                <!--style="?android:attr/buttonBarButtonStyle"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_weight="1"-->
-                <!--android:background="@color/activity_grey_background"-->
-                <!--android:text="F"-->
-                <!--android:textSize="15sp"-->
-                <!--android:textColor="@android:color/white" />-->
+            <!--android:id="@+id/buttonP2"-->
+            <!--style="?android:attr/buttonBarButtonStyle"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--android:background="@color/activity_grey_background"-->
+            <!--android:text="F"-->
+            <!--android:textSize="15sp"-->
+            <!--android:textColor="@android:color/white" />-->
 
 
-        <!--</LinearLayout>-->
+            <!--</LinearLayout>-->
 
-        <!-- RadioGroup for visible selection of a priority -->
-        <RadioGroup
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="2">
-
-            <RadioButton
-                android:id="@+id/radButton1"
-                android:layout_width="wrap_content"
+            <!-- RadioGroup for visible selection of a priority -->
+            <RadioGroup
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@android:color/white"
-                android:drawableRight="@drawable/man_face"
-                android:textSize="20sp"
-                android:theme="@style/WhiteRadioButton" />
+                android:orientation="horizontal"
+                android:weightSum="2">
 
-            <RadioButton
-                android:id="@+id/radButton2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:drawableRight="@drawable/woman_face"
-                android:textColor="@android:color/white"
-                android:theme="@style/WhiteRadioButton" />
+                <RadioButton
+                    android:id="@+id/radButton1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:drawableRight="@drawable/man_face"
+                    android:textSize="20sp"
+                    android:theme="@style/WhiteRadioButton" />
 
-        </RadioGroup>
+                <RadioButton
+                    android:id="@+id/radButton2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:drawableRight="@drawable/woman_face"
+                    android:textColor="@android:color/white"
+                    android:theme="@style/WhiteRadioButton" />
+
+            </RadioGroup>
 
         </FrameLayout>
 
@@ -140,16 +143,16 @@
         android:layout_height="wrap_content"
         android:background="@color/dark_red">
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/ripple_effect_done_button"
-        android:gravity="center_vertical|center_horizontal"
-        android:text="@string/button_done"
-        android:textAllCaps="false"
-        android:textColor="@android:color/white"
-        android:textSize="30dp"
-         />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ripple_effect_done_button"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="@string/button_done"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="30dp"
+            />
 
     </FrameLayout>
 

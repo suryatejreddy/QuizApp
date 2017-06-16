@@ -15,4 +15,5 @@
     <color name="material_purple">#4074E1</color>
     <color name="material_pink">#FF4081</color>
     <color name="dark_red">#B8252B</color>
+    <color name="progress_bar_colour">#84BE42</color>
 </resources>

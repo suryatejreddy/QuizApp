@@ -51,18 +51,21 @@ public class MainActivity extends AppCompatActivity
         int width = displayMetrics.widthPixels;
 
         Log.d("actionBar","mTwoPane = "+String.valueOf(findViewById(R.id.sub_category_container)!=null));
-        if(findViewById(R.id.sub_category_container)==null)
-        {
-            mTwoPane=false;
+        mTwoPane = findViewById(R.id.sub_category_container) != null;
+
+        if (savedInstanceState == null) {
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            PlaceholderFragment placeholderFragment = new PlaceholderFragment();
+
+
+            if (!mTwoPane)
+            {
+                fragmentTransaction.replace(R.id.container, placeholderFragment).commit();
+
+            }
+
         }
-        else
-        {
-            mTwoPane=true;
-        }
-
-
-
-
 
         Log.d("actionBar","width: "+String.valueOf(width)+", height: "+String.valueOf(height));
 
@@ -78,20 +81,6 @@ public class MainActivity extends AppCompatActivity
         Log.d("actionBar","MainActivity, "+String.valueOf((TextView) findViewById(R.id.app_bar_main_view)==null));
         mContext=getApplicationContext();
 
-
-        if (savedInstanceState == null) {
-            FragmentManager fragmentManager = getSupportFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            PlaceholderFragment placeholderFragment = new PlaceholderFragment();
-
-
-            if (mTwoPane==false)
-            {
-                    fragmentTransaction.replace(R.id.container, placeholderFragment).commit();
-
-            }
-
-        }
 //        if(PlaceholderFragment.PASS_TO_MAIN_FORSUB_CATEGORY==1) {
 //            SubFragment subFragment = new SubFragment();
 //

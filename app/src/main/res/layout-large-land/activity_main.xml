@@ -2,28 +2,25 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    android:weightSum="6"
+    android:weightSum="3"
     tools:context="com.example.android.quizapp.MainActivity"
-    >
+    android:baselineAligned="false">
 
-    <fragment
+    <FrameLayout
+        android:id="@+id/container"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:id="@+id/fragment_category_main"
-        android:name="com.example.android.quizapp.PlaceholderFragment"
-        android:layout_weight="2"
-        />
+        android:layout_weight="1"/>
     
     <FrameLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:background="@color/activity_grey_background"
         android:id="@+id/sub_category_container"
-        android:layout_weight="4"
+        android:layout_weight="2"
         />
 
 </LinearLayout>

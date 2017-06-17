@@ -13,8 +13,10 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -43,6 +45,7 @@ public class MainCategoryFragment extends Fragment implements CustomAdapter.List
     public static int PASS_TO_MAIN_FORSUB_CATEGORY;
     private CustomAdapter mAdapter;
     private RecyclerView mCategoryList;
+    private RecyclerView.LayoutManager layoutManager;
     //map containing categories
 
     MapObject[] GKObject = new MapObject[]{new MapObject(9, "")};
@@ -60,8 +63,7 @@ public class MainCategoryFragment extends Fragment implements CustomAdapter.List
 
     private Toast mToast;
 
-    public MainCategoryFragment()
-    {
+    public MainCategoryFragment() {
         setHasOptionsMenu(true);
         //setRetainInstance(true);
     }
@@ -79,7 +81,7 @@ public class MainCategoryFragment extends Fragment implements CustomAdapter.List
         View rootView = inflater.inflate(R.layout.fragment_main, container, false);
 
         mCategoryList = (RecyclerView) rootView.findViewById(R.id.categories_list);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(rootView.getContext());
+        layoutManager = new LinearLayoutManager(rootView.getContext());
         mCategoryList.setLayoutManager(layoutManager);
 
         mCategoryList.setHasFixedSize(true);
@@ -118,16 +120,15 @@ public class MainCategoryFragment extends Fragment implements CustomAdapter.List
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         menu.clear();
-        Log.d("thug","onCreateOptionsMenu called");
-        inflater.inflate(R.menu.menu_category,menu);
+        Log.d("thug", "onCreateOptionsMenu called");
+        inflater.inflate(R.menu.menu_category, menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        int id=item.getItemId();
-        if(id==R.id.profile_activity_open)
-        {
-            Intent intent=new Intent(getContext(),ProfileActivity.class);
+        int id = item.getItemId();
+        if (id == R.id.profile_activity_open) {
+            Intent intent = new Intent(getContext(), ProfileActivity.class);
             startActivity(intent);
             return true;
         }
@@ -141,23 +142,29 @@ public class MainCategoryFragment extends Fragment implements CustomAdapter.List
         if (mToast != null) {
             mToast.cancel();
         }
+        View v1=layoutManager.findViewByPosition(1);
+        View v2=layoutManager.findViewByPosition(2);
         String toastMessage;
         switch (clickedItemIndex) {
             case 0:
                 toastMessage = "GK";
                 break;
             case 1:
-                PASS_TO_MAIN_FORSUB_CATEGORY=1;
+                PASS_TO_MAIN_FORSUB_CATEGORY = 1;
 
-                Log.d("actionBar","Main activity mTwoPane: "+MainActivity.mTwoPane+" , Sub Activity: "+SubCategoryActivity.mTwoPane);
 
-                if(!MainActivity.mTwoPane && !SubCategoryActivity.mTwoPane) {
+
+                Log.d("actionBar", "Main activity mTwoPane: " + MainActivity.mTwoPane);
+
+                if (!MainActivity.mTwoPane) {
                     Intent subCategoryIntent = new Intent(getActivity(), SubCategoryActivity.class);
                     subCategoryIntent.putExtra("Key", "Entertainment");
                     startActivity(subCategoryIntent);
-                }
-                else {
+                } else if(!((TextView) v1.findViewById(R.id.right_button)).getText().toString().equals("●")){
 
+
+                    ((TextView)v1.findViewById(R.id.right_button)).setText("●");
+                    ((TextView)v2.findViewById(R.id.right_button)).setText("›");
                     SubCategoryFragment subCategoryFragment1 = new SubCategoryFragment();
                     Bundle args1 = new Bundle();
 
@@ -165,31 +172,36 @@ public class MainCategoryFragment extends Fragment implements CustomAdapter.List
                     subCategoryFragment1.setArguments(args1);
                     FragmentManager fragmentManager1 = getFragmentManager();
                     FragmentTransaction fragmentTransaction1 = fragmentManager1.beginTransaction();
-                    fragmentTransaction1.setCustomAnimations(R.anim.enter_from_right,R.anim.exit_to_left,R.anim.enter_from_left,R.anim.exit_to_right);
+                    fragmentTransaction1.setCustomAnimations(R.anim.enter_from_left, R.anim.exit_to_right, R.anim.enter_from_left, R.anim.exit_to_right);
                     fragmentTransaction1.replace(R.id.container, subCategoryFragment1);
                     fragmentTransaction1.commit();
                 }
-                toastMessage="";
+                toastMessage = "";
                 break;
 
             case 2:
-                PASS_TO_MAIN_FORSUB_CATEGORY=2;
+                PASS_TO_MAIN_FORSUB_CATEGORY = 2;
 
-                if(!MainActivity.mTwoPane && !SubCategoryActivity.mTwoPane) {
+                Log.d("actionBar", "Main activity mTwoPane: " + MainActivity.mTwoPane);
+
+
+
+                if (!MainActivity.mTwoPane) {
                     Intent subCategoryIntent = new Intent(getActivity(), SubCategoryActivity.class);
                     subCategoryIntent.putExtra("Key", "Science");
                     startActivity(subCategoryIntent);
-                }
-                else
-                {
-                    SubCategoryFragment subCategoryFragment2 =new SubCategoryFragment();
-                    Bundle args2=new Bundle();
+                } else if(!((TextView) v2.findViewById(R.id.right_button)).getText().toString().equals("●")){
 
-                    args2.putString("Key","Science");
+                    ((TextView)v1.findViewById(R.id.right_button)).setText("›");
+                    ((TextView)v2.findViewById(R.id.right_button)).setText("●");
+                    SubCategoryFragment subCategoryFragment2 = new SubCategoryFragment();
+                    Bundle args2 = new Bundle();
+
+                    args2.putString("Key", "Science");
                     subCategoryFragment2.setArguments(args2);
-                    FragmentManager fragmentManager2=getFragmentManager();
-                    FragmentTransaction fragmentTransaction2=fragmentManager2.beginTransaction();
-                    fragmentTransaction2.setCustomAnimations(R.anim.enter_from_right,R.anim.exit_to_left,R.anim.enter_from_left,R.anim.exit_to_right);
+                    FragmentManager fragmentManager2 = getFragmentManager();
+                    FragmentTransaction fragmentTransaction2 = fragmentManager2.beginTransaction();
+                    fragmentTransaction2.setCustomAnimations(R.anim.enter_from_left, R.anim.exit_to_right, R.anim.enter_from_left, R.anim.exit_to_right);
                     fragmentTransaction2.replace(R.id.container, subCategoryFragment2);
                     fragmentTransaction2.commit();
                 }
@@ -202,7 +214,7 @@ public class MainCategoryFragment extends Fragment implements CustomAdapter.List
                 break;
 
             case 4:
-                toastMessage =  "Sports";
+                toastMessage = "Sports";
                 break;
 
             case 5:
@@ -210,27 +222,27 @@ public class MainCategoryFragment extends Fragment implements CustomAdapter.List
                 break;
 
             case 6:
-                toastMessage =  "History";
+                toastMessage = "History";
                 break;
 
             case 7:
-                toastMessage =  "Politics";
+                toastMessage = "Politics";
                 break;
 
             case 8:
-                toastMessage =  "Art";
+                toastMessage = "Art";
                 break;
 
             case 9:
-                toastMessage ="Celebrities";
+                toastMessage = "Celebrities";
                 break;
 
             case 10:
-                toastMessage =  "Animals";
+                toastMessage = "Animals";
                 break;
 
             case 11:
-                toastMessage =  "Vehicles";
+                toastMessage = "Vehicles";
                 break;
 
             default:
@@ -239,10 +251,11 @@ public class MainCategoryFragment extends Fragment implements CustomAdapter.List
         if (!toastMessage.equals("")) {
             //mToast = Toast.makeText(getContext(), toastMessage, Toast.LENGTH_SHORT);
             //mToast.show();
-            Intent intent=new Intent(getContext(),QuizActivity.class);
-            intent.putExtra("ActionBar",toastMessage);
+            Intent intent = new Intent(getContext(), QuizActivity.class);
+            intent.putExtra("ActionBar", toastMessage);
             startActivity(intent);
         }
     }
+
 }
 

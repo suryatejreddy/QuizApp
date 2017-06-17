@@ -24,6 +24,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.NumberView
 
     private static final String TAG=CustomAdapter.class.getSimpleName();
 
+
     final private ListItemClickListener mOnClickListener;
 
     private static int viewHolderCount;

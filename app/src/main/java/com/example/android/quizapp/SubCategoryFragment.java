@@ -43,12 +43,29 @@ public class SubCategoryFragment extends Fragment implements SubCustomAdapter.Li
     {
 
         View rootView=inflater.inflate(R.layout.fragment_main,container,false);
-        String displayString=getActivity().getIntent().getStringExtra("Key");
-        if(displayString!=null) {
-            if (displayString.equals("Entertainment")) {
-                NUM_LIST_ITEMS = 10;
-            } else if (displayString.equals("Science")) {
-                NUM_LIST_ITEMS = 4;
+
+        if(!MainActivity.mTwoPane) {
+            String displayString = getActivity().getIntent().getStringExtra("Key");
+            if (displayString != null) {
+                if (displayString.equals("Entertainment")) {
+                    NUM_LIST_ITEMS = 10;
+                } else if (displayString.equals("Science")) {
+                    NUM_LIST_ITEMS = 4;
+                }
+            }
+        }
+        else {
+
+            if (getArguments() != null) {
+                String displayString = getArguments().getString("Key");
+                if (displayString != null) {
+
+                    if (displayString.equals("Entertainment")) {
+                        NUM_LIST_ITEMS = 10;
+                    } else if (displayString.equals("Science")) {
+                        NUM_LIST_ITEMS = 4;
+                    }
+                }
             }
         }
         mCategoryList= (RecyclerView) rootView.findViewById(R.id.categories_list);

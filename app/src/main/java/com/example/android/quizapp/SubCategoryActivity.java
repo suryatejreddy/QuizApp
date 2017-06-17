@@ -8,20 +8,21 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 public class SubCategoryActivity extends AppCompatActivity {
 
     public Context mContext;
-    public static boolean mTwoPane;
+    //public static boolean mTwoPane =false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sub_category);
 
-        mTwoPane = findViewById(R.id.sub_category_fragment) != null;
-
+        MainActivity.mTwoPane = findViewById(R.id.container) != null;
+        Log.d("mt","mTwoPane: "+MainActivity.mTwoPane);
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#535655")));
 
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);

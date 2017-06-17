@@ -62,8 +62,6 @@ public class SubCategoryFragment extends Fragment implements SubCustomAdapter.Li
         return rootView;
     }
 
-
-
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);

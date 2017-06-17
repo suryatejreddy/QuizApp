@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/activity_grey_background"
-    tools:context=".PlaceholderFragment">
+    tools:context=".MainCategoryFragment">
     
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"

@@ -6,7 +6,6 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.ActionBar;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -16,7 +15,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -39,11 +37,10 @@ class MapObject
     }
 }
 
-public class PlaceholderFragment extends Fragment implements CustomAdapter.ListItemClickListener {
+public class MainCategoryFragment extends Fragment implements CustomAdapter.ListItemClickListener {
 
     private static final int NUM_LIST_ITEMS = 12;
     public static int PASS_TO_MAIN_FORSUB_CATEGORY;
-    private static boolean viewInDisplay=false;
     private CustomAdapter mAdapter;
     private RecyclerView mCategoryList;
     //map containing categories
@@ -63,7 +60,7 @@ public class PlaceholderFragment extends Fragment implements CustomAdapter.ListI
 
     private Toast mToast;
 
-    public PlaceholderFragment()
+    public MainCategoryFragment()
     {
         setHasOptionsMenu(true);
         //setRetainInstance(true);
@@ -104,8 +101,7 @@ public class PlaceholderFragment extends Fragment implements CustomAdapter.ListI
         for (Map.Entry m : MainActivity.mapContainingCategories.entrySet()) {
             //Log.d("myTag","Key: "+m.getKey()+" ,Value: "+m.getValue());
             MapObject[] x = (MapObject[]) m.getValue();
-            int i = 0;
-            for (i = 0; i < x.length; i++) {
+            for (int i = 0; i < x.length; i++) {
                 Log.d("myTag", "Key: " + m.getKey() + " ,Value: { " + x[i].apiCategory + " , " + x[i].subCategory + " }");
             }
         }
@@ -152,37 +148,43 @@ public class PlaceholderFragment extends Fragment implements CustomAdapter.ListI
                 break;
             case 1:
                 PASS_TO_MAIN_FORSUB_CATEGORY=1;
-                SubFragment subFragment1=new SubFragment();
+                SubCategoryFragment subCategoryFragment1 =new SubCategoryFragment();
                 Bundle args1=new Bundle();
 
                 args1.putString("Key","Entertainment");
-                subFragment1.setArguments(args1);
+                subCategoryFragment1.setArguments(args1);
                 FragmentManager fragmentManager1=getFragmentManager();
                 FragmentTransaction fragmentTransaction1=fragmentManager1.beginTransaction();
                 fragmentTransaction1.setCustomAnimations(R.anim.enter_from_right,R.anim.exit_to_left,R.anim.enter_from_left,R.anim.exit_to_right);
-                if(!MainActivity.mTwoPane)
-                    fragmentTransaction1.replace(R.id.container,subFragment1);
+                if(!MainActivity.mTwoPane) {
+                    Intent subCategoryIntent = new Intent(getActivity(), SubCategoryActivity.class);
+                    subCategoryIntent.putExtra("Key", "Entertainment");
+                    startActivity(subCategoryIntent);
+                }
                 else
-                    fragmentTransaction1.replace(R.id.sub_category_container,subFragment1);
+                    fragmentTransaction1.replace(R.id.sub_category_container, subCategoryFragment1);
                 fragmentTransaction1.addToBackStack(null).commit();
                 toastMessage="";
                 break;
 
             case 2:
                 PASS_TO_MAIN_FORSUB_CATEGORY=2;
-                SubFragment subFragment2=new SubFragment();
+                SubCategoryFragment subCategoryFragment2 =new SubCategoryFragment();
                 Bundle args2=new Bundle();
 
                 args2.putString("Key","Science");
-                subFragment2.setArguments(args2);
+                subCategoryFragment2.setArguments(args2);
                 FragmentManager fragmentManager2=getFragmentManager();
                 FragmentTransaction fragmentTransaction2=fragmentManager2.beginTransaction();
                 fragmentTransaction2.setCustomAnimations(R.anim.enter_from_right,R.anim.exit_to_left,R.anim.enter_from_left,R.anim.exit_to_right);
-                if(!MainActivity.mTwoPane)
-                    fragmentTransaction2.replace(R.id.container,subFragment2);
+                if(!MainActivity.mTwoPane) {
+                    Intent subCategoryIntent = new Intent(getActivity(), SubCategoryActivity.class);
+                    subCategoryIntent.putExtra("Key", "Science");
+                    startActivity(subCategoryIntent);
+                }
                 else
                 {
-                    fragmentTransaction2.replace(R.id.sub_category_container, subFragment2);
+                    fragmentTransaction2.replace(R.id.sub_category_container, subCategoryFragment2);
                 }
                 fragmentTransaction2.addToBackStack(null).commit();
                 toastMessage = "";

@@ -36,7 +36,12 @@
             android:exported="true" />
 
         <activity android:name=".QuizActivity" />
-        <activity android:name=".SubCategoryActivity"></activity>
+        <activity android:name=".SubCategoryActivity"
+            android:parentActivityName=".MainActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+
+        </activity>
     </application>
 
 </manifest>

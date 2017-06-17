@@ -65,11 +65,12 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.NumberView
     public void onBindViewHolder(NumberViewHolder holder, int position) {
         Log.d(TAG,"#"+position);
         holder.bind(arrayForRecyclerView[position]);
-        ImageButton im=(ImageButton) holder.itemView.findViewById(R.id.right_button);
+        TextView im=(TextView) holder.itemView.findViewById(R.id.right_button);
         if(arrayForRecyclerView[position].equals("Entertainment") || arrayForRecyclerView[position].equals("Science"))
         {
+            im.setText("›");
+            //im.setTextColor(Color.parseColor("#000"));
             im.setVisibility(View.VISIBLE);
-
         }
 
         else

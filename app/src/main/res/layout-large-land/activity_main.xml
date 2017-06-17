@@ -23,7 +23,7 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:background="@color/activity_grey_background"
-        android:id="@+id/sub_category_container"
+        android:id="@+id/container"
         android:layout_weight="2"
         />
 

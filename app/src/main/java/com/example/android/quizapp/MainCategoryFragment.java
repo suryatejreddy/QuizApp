@@ -148,45 +148,52 @@ public class MainCategoryFragment extends Fragment implements CustomAdapter.List
                 break;
             case 1:
                 PASS_TO_MAIN_FORSUB_CATEGORY=1;
-                SubCategoryFragment subCategoryFragment1 =new SubCategoryFragment();
-                Bundle args1=new Bundle();
 
-                args1.putString("Key","Entertainment");
-                subCategoryFragment1.setArguments(args1);
-                FragmentManager fragmentManager1=getFragmentManager();
-                FragmentTransaction fragmentTransaction1=fragmentManager1.beginTransaction();
-                fragmentTransaction1.setCustomAnimations(R.anim.enter_from_right,R.anim.exit_to_left,R.anim.enter_from_left,R.anim.exit_to_right);
-                if(!MainActivity.mTwoPane) {
+                Log.d("actionBar","Main activity mTwoPane: "+MainActivity.mTwoPane+" , Sub Activity: "+SubCategoryActivity.mTwoPane);
+
+                if(!MainActivity.mTwoPane && !SubCategoryActivity.mTwoPane) {
                     Intent subCategoryIntent = new Intent(getActivity(), SubCategoryActivity.class);
                     subCategoryIntent.putExtra("Key", "Entertainment");
                     startActivity(subCategoryIntent);
                 }
-                else
-                    fragmentTransaction1.replace(R.id.sub_category_container, subCategoryFragment1);
-                fragmentTransaction1.addToBackStack(null).commit();
+                else {
+
+                    SubCategoryFragment subCategoryFragment1 = new SubCategoryFragment();
+                    Bundle args1 = new Bundle();
+
+                    args1.putString("Key", "Entertainment");
+                    subCategoryFragment1.setArguments(args1);
+                    FragmentManager fragmentManager1 = getFragmentManager();
+                    FragmentTransaction fragmentTransaction1 = fragmentManager1.beginTransaction();
+                    fragmentTransaction1.setCustomAnimations(R.anim.enter_from_right,R.anim.exit_to_left,R.anim.enter_from_left,R.anim.exit_to_right);
+                    fragmentTransaction1.replace(R.id.container, subCategoryFragment1);
+                    fragmentTransaction1.commit();
+                }
                 toastMessage="";
                 break;
 
             case 2:
                 PASS_TO_MAIN_FORSUB_CATEGORY=2;
-                SubCategoryFragment subCategoryFragment2 =new SubCategoryFragment();
-                Bundle args2=new Bundle();
 
-                args2.putString("Key","Science");
-                subCategoryFragment2.setArguments(args2);
-                FragmentManager fragmentManager2=getFragmentManager();
-                FragmentTransaction fragmentTransaction2=fragmentManager2.beginTransaction();
-                fragmentTransaction2.setCustomAnimations(R.anim.enter_from_right,R.anim.exit_to_left,R.anim.enter_from_left,R.anim.exit_to_right);
-                if(!MainActivity.mTwoPane) {
+                if(!MainActivity.mTwoPane && !SubCategoryActivity.mTwoPane) {
                     Intent subCategoryIntent = new Intent(getActivity(), SubCategoryActivity.class);
                     subCategoryIntent.putExtra("Key", "Science");
                     startActivity(subCategoryIntent);
                 }
                 else
                 {
-                    fragmentTransaction2.replace(R.id.sub_category_container, subCategoryFragment2);
+                    SubCategoryFragment subCategoryFragment2 =new SubCategoryFragment();
+                    Bundle args2=new Bundle();
+
+                    args2.putString("Key","Science");
+                    subCategoryFragment2.setArguments(args2);
+                    FragmentManager fragmentManager2=getFragmentManager();
+                    FragmentTransaction fragmentTransaction2=fragmentManager2.beginTransaction();
+                    fragmentTransaction2.setCustomAnimations(R.anim.enter_from_right,R.anim.exit_to_left,R.anim.enter_from_left,R.anim.exit_to_right);
+                    fragmentTransaction2.replace(R.id.container, subCategoryFragment2);
+                    fragmentTransaction2.commit();
                 }
-                fragmentTransaction2.addToBackStack(null).commit();
+
                 toastMessage = "";
                 break;
 

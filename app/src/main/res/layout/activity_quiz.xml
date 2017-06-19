@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:id="@+id/layout_quiz"
     tools:context="com.example.android.quizapp.QuizActivity">
 
 
@@ -20,6 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/question_text_view"
+            android:fontFamily="casual"
             android:textColor="@android:color/white"
             android:textSize="20sp"
             />
@@ -45,6 +47,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text=""
+                android:fontFamily="casual"
                 android:onClick="onAnswerButton1Click"
                 android:textColor="@android:color/white"
                 android:id="@+id/answer_button_1"
@@ -62,12 +65,23 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text=""
+                android:fontFamily="casual"
                 android:textColor="@android:color/white"
                 android:id="@+id/answer_button_2"
                 android:onClick="onAnswerButton2Click"
                 android:background="?attr/selectableItemBackgroundBorderless"/>
 
         </FrameLayout>
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+
+            android:visibility="gone"
+            android:id="@+id/circle_load"/>
+        <!--android:indeterminate="true"-->
+            <!--android:indeterminateDrawable="@drawable/progress"/>-->
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -78,6 +92,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:fontFamily="casual"
                 android:textColor="@android:color/white"
                 android:text=""
                 android:onClick="onAnswerButton3Click"
@@ -95,6 +110,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:fontFamily="casual"
                 android:textColor="@android:color/white"
                 android:text=""
                 android:onClick="onAnswerButton4Click"
@@ -139,6 +155,7 @@
                     android:layout_gravity="center"
                 android:textAllCaps="false"
                 android:textSize="30sp"
+                android:fontFamily="casual"
                 android:textColor="@android:color/white"
                 android:text="@string/button_next"
                 android:id="@+id/next_button"

@@ -27,6 +27,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Name"
+        android:fontFamily="casual"
         android:layout_marginTop="@dimen/activity_vertical_margin"
         android:textColor="@android:color/white"
         android:textColorHint="@android:color/white" />
@@ -42,7 +43,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="Age"
-
+            android:fontFamily="casual"
             android:inputType="number"
             android:maxLength="2"
             android:textColor="@android:color/white"
@@ -54,6 +55,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:text="Gender"
+            android:fontFamily="casual"
            android:layout_weight="1"
             android:layout_gravity="center"
             android:gravity="center"
@@ -146,9 +148,10 @@
         android:background="@drawable/ripple_effect_done_button"
         android:gravity="center_vertical|center_horizontal"
         android:text="@string/button_done"
+        android:fontFamily="casual"
         android:textAllCaps="false"
         android:textColor="@android:color/white"
-        android:textSize="30dp"
+        android:textSize="30sp"
          />
 
     </FrameLayout>

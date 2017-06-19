@@ -12,6 +12,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:fontFamily="casual"
         android:layout_weight="0.30"
         android:background="@android:color/transparent" />
 
@@ -22,6 +23,7 @@
         android:layout_gravity="center"
         android:gravity="center_vertical|center_horizontal|center"
         android:text="@string/title_logo"
+        android:fontFamily="casual"
         android:textColor="@android:color/white"
         android:textSize="50sp" />
 

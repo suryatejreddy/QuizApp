@@ -22,6 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@id/question_text_view"
+            android:fontFamily="casual"
             android:textColor="@android:color/white"
             android:textSize="25sp"
             />
@@ -48,6 +49,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textSize="20sp"
+                android:fontFamily="casual"
                 android:layout_gravity="center"
                 android:textColor="@android:color/white"
                 android:text=""
@@ -67,6 +69,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:fontFamily="casual"
                 android:textSize="20sp"
                 android:layout_gravity="center"
                 android:textColor="@android:color/white"
@@ -76,6 +79,21 @@
                 android:background="?attr/selectableItemBackgroundBorderless"/>
 
         </FrameLayout>
+
+
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:id="@+id/circle_load"
+
+            android:visibility="gone"
+            />
+
+
+
+
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -88,6 +106,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textSize="20sp"
+                android:fontFamily="casual"
                 android:layout_gravity="center"
                 android:textColor="@android:color/white"
                 android:text=""
@@ -111,6 +130,7 @@
                 android:textSize="20sp"
                 android:textColor="@android:color/white"
                 android:text=""
+                android:fontFamily="casual"
                 android:onClick="onAnswerButton4Click"
                 android:id="@id/answer_button_4"
                 android:background="?attr/selectableItemBackgroundBorderless"/>
@@ -156,6 +176,7 @@
             android:textSize="30sp"
             android:textColor="@android:color/white"
             android:text="@string/button_next"
+            android:fontFamily="casual"
             android:id="@id/next_button"
             android:onClick="onNextButtonClick"
             android:background="?attr/selectableItemBackgroundBorderless"/>

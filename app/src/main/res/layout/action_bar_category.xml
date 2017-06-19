@@ -10,6 +10,7 @@
         android:layout_gravity="left"
         android:textSize="20sp"
         android:gravity="center"
+
         android:textColor="@android:color/white"
         android:text="@string/title_activity_category"
         android:id="@+id/app_bar_main_view"

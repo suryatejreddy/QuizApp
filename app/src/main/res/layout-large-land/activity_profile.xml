@@ -27,6 +27,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Name"
+        android:fontFamily="casual"
         android:layout_marginTop="16dp"
         android:textColor="@android:color/white"
         android:textColorHint="@android:color/white" />
@@ -47,6 +48,7 @@
             android:layout_weight="1"
             android:inputType="number"
             android:maxLength="2"
+            android:fontFamily="casual"
             android:textColor="@android:color/white"
             android:textColorHint="@android:color/white" />
 
@@ -56,6 +58,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:text="Gender"
+            android:fontFamily="casual"
             android:layout_weight="1"
             android:layout_gravity="center"
             android:gravity="center"
@@ -152,6 +155,7 @@
             android:text="@string/button_done"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
+            android:fontFamily="casual"
             android:textAllCaps="false"
             android:textColor="@android:color/white"
             android:textSize="30dp"

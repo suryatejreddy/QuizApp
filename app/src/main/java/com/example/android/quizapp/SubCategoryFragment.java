@@ -165,6 +165,8 @@ public class SubCategoryFragment extends Fragment implements SubCustomAdapter.Li
                 Intent intent=new Intent(getContext(),QuizActivity.class);
                 intent.putExtra("ActionBar",toastMessage);
                 startActivity(intent);
+                getActivity().finish();
+
             }
         }
 
@@ -195,6 +197,7 @@ public class SubCategoryFragment extends Fragment implements SubCustomAdapter.Li
                 Intent intent=new Intent(getContext(),QuizActivity.class);
                 intent.putExtra("ActionBar",toastMessage);
                 startActivity(intent);
+                getActivity().finish();
             }
         }
     }

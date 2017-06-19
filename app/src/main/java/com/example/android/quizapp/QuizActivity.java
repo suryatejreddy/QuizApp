@@ -57,7 +57,7 @@ public class QuizActivity extends AppCompatActivity {
     private static Button AnswerButton4;
     private static Button NextButton;
     private static ProgressBar progressBar;
-    private static ProgressBar loadingIndicator;
+    private static LinearLayout loadingIndicator;
     private static LinearLayout linearLayout;
     private static int PROGRESS=0;
     private static int NUMBER_QUESTIONS_COMPLETED=0;
@@ -94,7 +94,7 @@ public class QuizActivity extends AppCompatActivity {
         AnswerButton3 = (Button) findViewById(R.id.answer_button_3);
         AnswerButton4 = (Button) findViewById(R.id.answer_button_4);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
-        loadingIndicator = (ProgressBar) findViewById(R.id.circle_load);
+        loadingIndicator = (LinearLayout) findViewById(R.id.circle_load);
         linearLayout = (LinearLayout) findViewById(R.id.layout_quiz);
 
 

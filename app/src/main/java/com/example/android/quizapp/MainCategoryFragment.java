@@ -46,6 +46,7 @@ public class MainCategoryFragment extends Fragment implements CustomAdapter.List
     private CustomAdapter mAdapter;
     private RecyclerView mCategoryList;
     private RecyclerView.LayoutManager layoutManager;
+    private static int REQUEST_EXIT=14;
     //map containing categories
 
     MapObject[] GKObject = new MapObject[]{new MapObject(9, "")};

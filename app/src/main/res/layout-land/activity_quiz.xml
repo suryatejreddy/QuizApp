@@ -88,13 +88,33 @@
         </LinearLayout>
 
 
-        <ProgressBar
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:indeterminate="true"
+            android:orientation="vertical"
             android:id="@+id/circle_load"
-            />
+            android:visibility="gone"
+            android:layout_gravity="center"
+            >
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                />
+            <!--android:indeterminate="true"-->
+            <!--android:indeterminateDrawable="@drawable/progress"/>-->
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:text="Loading..."
+                android:layout_weight="1"/>
+
+        </LinearLayout>
 
 
         <LinearLayout

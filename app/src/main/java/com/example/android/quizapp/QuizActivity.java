@@ -192,12 +192,40 @@ public class QuizActivity extends AppCompatActivity {
 
                 }
             },
-                    new Response.ErrorListener() {
+                            new Response.ErrorListener() {
                         @Override
                         public void onErrorResponse(VolleyError error) {
                             Log.d("volley", error.toString());
+                            loadingIndicator.setVisibility(View.GONE);
+                            AlertDialog.Builder builder=  new AlertDialog.Builder(QuizActivity.this);
+                            builder
+                                    .setMessage("Cannot connect to network right now. Please try again later.")
+                                    .setCancelable(false);
+                            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    Intent intentToStartMain=new Intent(getApplicationContext(),MainActivity.class);
+                                    NUMBER_QUESTIONS_COMPLETED=0;
+                                    progressBar.setProgress(0);
+                                    PROGRESS=0;
+                                    NUMBER_CORRECT=0;
+                                    startActivity(intentToStartMain);
+                                    finish();
+                                }
+                            });
+                            builder.setNegativeButton("", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
 
-                            QuestionTextView.setText(error.toString());
+                                }
+                            });
+
+                            AlertDialog alertDialog=builder.create();
+                            alertDialog.show();
+
+
+
+                            //QuestionTextView.setText(error.toString());
                         }
                     }
             );

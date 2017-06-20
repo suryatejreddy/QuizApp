@@ -26,8 +26,6 @@ public class DisplayResultActivity extends AppCompatActivity {
 
     public void onPlayAgainClick(View view)
     {
-        Intent intent=new Intent(this,MainActivity.class);
-        startActivity(intent);
         finish();
     }
 

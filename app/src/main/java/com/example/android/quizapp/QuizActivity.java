@@ -564,17 +564,15 @@ public class QuizActivity extends AppCompatActivity {
     public void onBackPressed() {
       AlertDialog.Builder builder=  new AlertDialog.Builder(QuizActivity.this);
               builder
-                .setMessage("Are you sure you want to leave in the middle of the quiz?")
+                .setMessage("Are you sure you want to leave the quiz?")
                 .setCancelable(false);
                builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
                    @Override
                    public void onClick(DialogInterface dialog, int which) {
-                       Intent intentToStartMain=new Intent(getApplicationContext(),MainActivity.class);
                        NUMBER_QUESTIONS_COMPLETED=0;
                        progressBar.setProgress(0);
                        PROGRESS=0;
                        NUMBER_CORRECT=0;
-                       startActivity(intentToStartMain);
                        finish();
                    }
                });

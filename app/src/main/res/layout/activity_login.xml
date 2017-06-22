@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/activity_red_background"
+    tools:context="com.example.android.quizapp.MainActivity"
+    android:weightSum="1">
+
+
+
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.6"/>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center_vertical|center_horizontal|center"
+        android:text="QuizApp"
+        android:fontFamily="casual"
+        android:textColor="@android:color/white"
+        android:textSize="50sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Time to tickle your grey cells!"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:textStyle="italic"/>
+
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="48dp"
+        android:layout_marginTop="24dp"
+        android:orientation="vertical">
+
+
+
+
+        
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:textColorHint="@android:color/white"
+            android:backgroundTint="@android:color/white"
+            android:layout_marginTop="8dp">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/email_input"
+                android:inputType="textEmailAddress"
+                android:hint="Email"
+                android:drawableLeft="@drawable/ic_email_icon"
+                app:backgroundTint="@android:color/white"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/white"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+
+
+
+
+
+
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_marginBottom="8dp"
+            android:textColorHint="@android:color/white"
+            android:backgroundTint="@android:color/white"
+            android:layout_marginTop="8dp"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/password_input"
+                android:hint="Password"
+                android:drawableLeft="@drawable/ic_password_icon"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp"
+                app:backgroundTint="@android:color/white"
+                android:inputType="textPassword"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/white"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+
+
+
+
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/dark_red"
+            android:layout_marginTop="36dp"
+            android:layout_marginBottom="24dp"
+            >
+
+
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:textColor="@android:color/white"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:text="Login"/>
+
+
+        </FrameLayout>
+
+
+
+
+    <TextView android:id="@+id/link_signup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Don't have an account? Create one here"
+        android:textColor="@android:color/white"
+        android:gravity="center"
+        android:background="?attr/selectableItemBackground"
+        android:textSize="16sp"/>
+
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -434,7 +434,7 @@ public class QuizActivity extends AppCompatActivity {
 //           {
 //               NUMBER_CORRECT++;
 //           }
-           AnswerButton1.setBackgroundColor(getResources().getColor(R.color.maroon));
+           AnswerButton1.setBackgroundColor(getResources().getColor(R.color.activity_grey_background));
             int[] attrs=new int[]{R.attr.selectableItemBackgroundBorderless};
         TypedArray typedArray=getApplicationContext().obtainStyledAttributes(attrs);
         int backgroundResource=typedArray.getResourceId(0,0);
@@ -451,7 +451,7 @@ public class QuizActivity extends AppCompatActivity {
 //        {
 //            NUMBER_CORRECT++;
 //        }
-        AnswerButton2.setBackgroundColor(getResources().getColor(R.color.maroon));
+        AnswerButton2.setBackgroundColor(getResources().getColor(R.color.activity_grey_background));
         int[] attrs=new int[]{R.attr.selectableItemBackgroundBorderless};
         TypedArray typedArray=getApplicationContext().obtainStyledAttributes(attrs);
         int backgroundResource=typedArray.getResourceId(0,0);
@@ -468,7 +468,7 @@ public class QuizActivity extends AppCompatActivity {
 //        {
 //            NUMBER_CORRECT++;
 //        }
-        AnswerButton3.setBackgroundColor(getResources().getColor(R.color.maroon));
+        AnswerButton3.setBackgroundColor(getResources().getColor(R.color.activity_grey_background));
         int[] attrs=new int[]{R.attr.selectableItemBackgroundBorderless};
         TypedArray typedArray=getApplicationContext().obtainStyledAttributes(attrs);
         int backgroundResource=typedArray.getResourceId(0,0);
@@ -485,7 +485,7 @@ public class QuizActivity extends AppCompatActivity {
 //        {
 //            NUMBER_CORRECT++;
 //        }
-        AnswerButton4.setBackgroundColor(getResources().getColor(R.color.maroon));
+        AnswerButton4.setBackgroundColor(getResources().getColor(R.color.activity_grey_background));
         int[] attrs=new int[]{R.attr.selectableItemBackgroundBorderless};
         TypedArray typedArray=getApplicationContext().obtainStyledAttributes(attrs);
         int backgroundResource=typedArray.getResourceId(0,0);
@@ -562,7 +562,9 @@ public class QuizActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-      AlertDialog.Builder builder=  new AlertDialog.Builder(QuizActivity.this);
+
+
+        AlertDialog.Builder builder=  new AlertDialog.Builder(QuizActivity.this);
               builder
                 .setMessage("Are you sure you want to leave the quiz?")
                 .setCancelable(false);

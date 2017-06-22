@@ -1,11 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
 
-    <item app:showAsAction="always"
-        android:icon="@drawable/ic_user_profile"
+
+    <item
+        android:id="@+id/id_more"
+        app:showAsAction="always"
+        android:title="more"
+        android:icon="@drawable/ic_three_dots"
+        >
+        <menu>
+
+
+    <item app:showAsAction="never"
+        android:icon="@drawable/ic_user_profile_grey"
         android:orderInCategory="1"
         android:id="@+id/profile_activity_open"
         android:title="Profile"/>
+
+    <item app:showAsAction="never"
+        android:orderInCategory="2"
+        android:id="@+id/logout_btn"
+        android:title="Logout"
+        android:icon="@drawable/ic_logout_button_grey"/>
+
+
+
+        </menu>
+
+
+    </item>
 
 </menu>

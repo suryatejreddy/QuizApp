@@ -9,6 +9,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class SubCategoryActivity extends AppCompatActivity {
@@ -29,13 +30,36 @@ public class SubCategoryActivity extends AppCompatActivity {
         getSupportActionBar().setCustomView(R.layout.action_bar_subcategory);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(getResources().getDrawable(R.drawable.ic_back_button));
-        String actionBarTitle="CATEGORIES";
-        if(getIntent().hasExtra("Key"))
-            actionBarTitle=getIntent().getStringExtra("Key");
-        TextView actionBarText=((TextView) findViewById(R.id.app_bar_subcategory_view));
+        //String actionBarTitle="CATEGORIES";
+        //if(getIntent().hasExtra("Key"))
+          //  actionBarTitle=getIntent().getStringExtra("Key");
+        TextView actionBarText=((TextView) findViewById(R.id.app_bar_category_view));
         if(actionBarText!=null)
         {
-            actionBarText.setText(actionBarTitle.toUpperCase());
+            actionBarText.setText(MainActivity.CURRENT_USER_NAME);
+        }
+
+        if((ImageView) findViewById(R.id.app_bar_category_profile_image)!=null)
+        {
+            Log.d("database", "MainActivity: "+MainActivity.CURRENT_USER_IMAGE);
+            ((ImageView) findViewById(R.id.app_bar_category_profile_image)).setImageBitmap(MainActivity.CURRENT_USER_IMAGE_BITMAP);
+        }
+    }
+
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        TextView actionBarText=((TextView) findViewById(R.id.app_bar_category_view));
+        if(actionBarText!=null)
+        {
+            actionBarText.setText(MainActivity.CURRENT_USER_NAME);
+        }
+
+        if((ImageView) findViewById(R.id.app_bar_category_profile_image)!=null)
+        {
+            Log.d("database", "MainActivity: "+MainActivity.CURRENT_USER_IMAGE);
+            ((ImageView) findViewById(R.id.app_bar_category_profile_image)).setImageBitmap(MainActivity.CURRENT_USER_IMAGE_BITMAP);
         }
     }
 }

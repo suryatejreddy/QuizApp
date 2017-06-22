@@ -11,4 +11,5 @@
     <string name="category_icon">Category Icon</string>
     <string name="sub_categories">Sub Categories</string>
     <bool name="is_tablet">false</bool>
+    <string name="vertical_ellipsis">&#8942;</string>
 </resources>

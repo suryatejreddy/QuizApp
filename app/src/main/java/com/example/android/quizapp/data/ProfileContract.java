@@ -23,10 +23,16 @@ public class ProfileContract
 
         public static final String COLUMN_NAME="name";
 
-        public static final String COLUMN_AGE="age";
+        public static final String COLUMN_EMAIL="email";
+
+        public static final String COLUMN_PASSWORD="password";
+
+        public static final String COLUMN_DOB="dateofbirth";
 
         public static final String COLUMN_GENDER="gender";
 
         public static final String COLUMN_IMAGE="image";
+
+
     }
 }

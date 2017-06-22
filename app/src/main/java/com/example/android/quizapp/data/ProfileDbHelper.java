@@ -26,11 +26,13 @@ public class ProfileDbHelper extends SQLiteOpenHelper
     {
         final String CREATE_TABLE;
         CREATE_TABLE="CREATE TABLE "+ ProfileContract.ProfileEntry.TABLE_NAME+" ( "
-                + ProfileContract.ProfileEntry._ID+" INTEGER PRIMARY KEY, "
+                + ProfileContract.ProfileEntry._ID+" INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + ProfileContract.ProfileEntry.COLUMN_NAME+" TEXT NOT NULL, "
-                + ProfileContract.ProfileEntry.COLUMN_AGE+" TEXT NOT NULL, "
+                + ProfileContract.ProfileEntry.COLUMN_EMAIL+" TEXT NOT NULL, "
+                + ProfileContract.ProfileEntry.COLUMN_PASSWORD+" TEXT NOT NULL, "
+                + ProfileContract.ProfileEntry.COLUMN_DOB+" TEXT NOT NULL, "
                 + ProfileContract.ProfileEntry.COLUMN_GENDER+" TEXT NOT NULL, "
-                + ProfileContract.ProfileEntry.COLUMN_IMAGE+" BLOB "+");";
+                + ProfileContract.ProfileEntry.COLUMN_IMAGE+" TEXT "+");";
         db.execSQL(CREATE_TABLE);
     }
 

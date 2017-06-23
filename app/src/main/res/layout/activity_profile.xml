@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:background="@color/activity_grey_background"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -16,6 +23,7 @@
     <RelativeLayout
         android:layout_width="200dp"
         android:layout_gravity="center"
+        android:background="@color/activity_red_background"
         android:layout_height="200dp">
 
 
@@ -26,6 +34,7 @@
             android:layout_height="200dp"
             android:layout_gravity="center_horizontal"
             android:scaleType="fitXY"
+            android:background="?attr/selectableItemBackgroundBorderless"
             android:src="@drawable/ic_profile_default" />
 
 
@@ -34,10 +43,11 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:visibility="visible"
+            android:background="?attr/selectableItemBackgroundBorderless"
             android:layout_alignParentRight="true"
             android:id="@+id/edit_button"
 
-            android:src="@drawable/ic_edit_profile_grey"/>
+            android:src="@drawable/ic_edit_profile"/>
 
     </RelativeLayout>
 
@@ -214,6 +224,7 @@
         android:background="@color/dark_red"
         android:paddingLeft="24dp"
         android:paddingRight="24dp"
+        android:layout_marginTop="24dp"
         android:layout_gravity="center"
         >
 
@@ -230,4 +241,19 @@
 
     </FrameLayout>
 
+    <TextView android:id="@+id/link_change_password"
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:text="@string/change_password"
+        android:textColor="@color/activity_red_background"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:gravity="center"
+        android:textAllCaps="false"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="24dp"
+        android:textSize="16sp"/>
+
 </LinearLayout>
+
+</ScrollView>

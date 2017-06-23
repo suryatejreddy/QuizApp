@@ -16,6 +16,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -98,7 +99,16 @@ public class MainActivity extends AppCompatActivity {
         if((TextView) findViewById(R.id.app_bar_main_view)!=null)
         {
             ((TextView) findViewById(R.id.app_bar_main_view)).setText(CURRENT_USER_NAME);
+            ((TextView) findViewById(R.id.app_bar_main_view)).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
+                    startActivity(intent);
+                }
+            });
         }
+
+
     }
 
     @Override
@@ -108,12 +118,28 @@ public class MainActivity extends AppCompatActivity {
         if((TextView) findViewById(R.id.app_bar_main_view)!=null)
         {
             ((TextView) findViewById(R.id.app_bar_main_view)).setText(CURRENT_USER_NAME);
+
+            ((TextView) findViewById(R.id.app_bar_main_view)).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent=new Intent(getApplicationContext(), ProfileActivity.class);
+                    startActivity(intent);
+                }
+            });
         }
 
         if((ImageView) findViewById(R.id.app_bar_main_profile_image)!=null)
         {
             Log.d("database", "MainActivity: "+CURRENT_USER_IMAGE);
             ((ImageView) findViewById(R.id.app_bar_main_profile_image)).setImageBitmap(CURRENT_USER_IMAGE_BITMAP);
+
+            ((ImageView) findViewById(R.id.app_bar_main_profile_image)).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent=new Intent(getApplicationContext(), ProfileActivity.class);
+                    startActivity(intent);
+                }
+            });
         }
     }
 }

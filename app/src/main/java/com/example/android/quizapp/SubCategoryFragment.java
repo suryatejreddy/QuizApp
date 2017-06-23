@@ -2,7 +2,9 @@ package com.example.android.quizapp;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -98,6 +100,15 @@ public class SubCategoryFragment extends Fragment implements SubCustomAdapter.Li
             Intent intent=new Intent(getContext(),ProfileActivity.class);
             startActivity(intent);
             return true;
+        }
+
+        if(id==R.id.logout_btn)
+        {
+            Intent intent=new Intent(getContext(), LoginActivity.class);
+            SharedPreferences preferences= PreferenceManager.getDefaultSharedPreferences(getContext());
+            preferences.edit().putBoolean("LOGIN_MODE", false).apply();
+            startActivity(intent);
+            getActivity().finish();
         }
 
         return super.onOptionsItemSelected(item);

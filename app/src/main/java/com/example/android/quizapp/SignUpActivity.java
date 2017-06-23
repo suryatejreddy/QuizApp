@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -511,7 +512,12 @@ public class SignUpActivity extends AppCompatActivity {
         if (email.isEmpty() || !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             emailEditText.setError("Enter valid email address");
             valid = false;
-        } else {
+        }
+        else if(checkEmail(email)){
+            emailEditText.setError("Email address exists. Please login");
+            valid=false;
+        }
+        else {
             emailEditText.setError(null);
         }
 
@@ -650,6 +656,49 @@ public class SignUpActivity extends AppCompatActivity {
 
         return hash.toString();
     }
+
+
+
+
+    private boolean checkEmail(String email)
+    {
+        String[] columns=new String[]{ProfileContract.ProfileEntry._ID};
+
+        SQLiteDatabase database=(new ProfileDbHelper(getApplicationContext())).getReadableDatabase();
+
+        String selection= ProfileContract.ProfileEntry.COLUMN_EMAIL+"=?";
+
+        String[] selectArgs={email};
+
+        Cursor cursor= database.query(
+                ProfileContract.ProfileEntry.TABLE_NAME,
+                columns,
+                selection,
+                selectArgs,
+                null,
+                null,
+                null);
+
+        int cursorCount=cursor.getCount();
+
+        //cursor.close();
+        database.close();
+
+        if(cursorCount>0)
+        {
+            // email id exists
+            Log.d("database", "cursorCount="+String.valueOf(cursorCount));
+            //cursor.moveToFirst();
+            //CurrentUserId=cursor.getLong(cursor.getColumnIndex(ProfileContract.ProfileEntry._ID));
+            //cursor.close();
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+
 }
 
 

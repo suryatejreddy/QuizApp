@@ -19,6 +19,7 @@
     <RelativeLayout
         android:layout_width="200dp"
         android:layout_gravity="center"
+        android:background="@color/activity_red_background"
         android:layout_height="200dp">
 
 
@@ -29,6 +30,7 @@
             android:layout_height="200dp"
             android:layout_gravity="center_horizontal"
             android:scaleType="fitXY"
+            android:background="?attr/selectableItemBackgroundBorderless"
             android:src="@drawable/ic_profile_default" />
 
 
@@ -36,11 +38,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
+            android:background="?attr/selectableItemBackgroundBorderless"
             android:visibility="visible"
             android:layout_alignParentRight="true"
             android:id="@+id/edit_button"
 
-            android:src="@drawable/ic_edit_profile_grey"/>
+            android:src="@drawable/ic_edit_profile"/>
 
     </RelativeLayout>
 
@@ -207,12 +210,11 @@
 
 
 
-    <FrameLayout
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@color/dark_red"
-        android:paddingLeft="24dp"
-        android:paddingRight="24dp"
+        android:orientation="vertical"
         android:layout_marginTop="@dimen/activity_horizontal_margin"
         android:layout_gravity="center"
         >
@@ -223,11 +225,39 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:paddingLeft="24dp"
+            android:paddingRight="24dp"
             android:textColor="@android:color/white"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:text="Save Changes"/>
 
 
-    </FrameLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="24dp"
+            android:paddingRight="24dp"
+            android:background="@color/activity_grey_background">
+
+        <TextView android:id="@+id/link_change_password"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/change_password"
+            android:textColor="@color/activity_red_background"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:gravity="center"
+            android:textAllCaps="false"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="24dp"
+            android:textSize="16sp"/>
+
+
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+
 
 </LinearLayout>

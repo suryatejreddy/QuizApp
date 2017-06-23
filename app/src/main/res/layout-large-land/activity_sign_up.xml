@@ -69,6 +69,8 @@
 
             <RelativeLayout
                 android:layout_width="200dp"
+                android:background="@color/activity_grey_background"
+                android:layout_marginTop="24dp"
                 android:layout_gravity="center"
                 android:layout_height="200dp">
 
@@ -80,6 +82,7 @@
                     android:layout_height="200dp"
                     android:layout_gravity="center_horizontal"
                     android:scaleType="fitXY"
+                    android:background="?attr/selectableItemBackgroundBorderless"
                     android:src="@drawable/ic_profile_default" />
 
                 <ImageButton
@@ -89,7 +92,8 @@
                     android:visibility="visible"
                     android:layout_alignParentRight="true"
                     android:id="@+id/edit_btn"
-                    android:src="@drawable/ic_edit_profile_grey"/>
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:src="@drawable/ic_edit_profile"/>
 
 
 
@@ -158,6 +162,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/input_password"
                     android:hint="Password"
+                    app:passwordToggleEnabled="true"
                     android:drawableLeft="@drawable/ic_password_icon"
                     android:layout_marginBottom="5dp"
                     android:layout_marginTop="5dp"
@@ -188,6 +193,7 @@
                     android:drawableLeft="@drawable/ic_password_confirm_icon"
                     android:layout_marginBottom="5dp"
                     android:layout_marginTop="5dp"
+                    app:passwordToggleEnabled="true"
                     app:backgroundTint="@android:color/white"
                     android:inputType="textPassword"
                     android:textColor="@android:color/white"
@@ -323,7 +329,7 @@
                 android:layout_width="match_parent"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="Have an account? Login"
+                android:text="@string/have_an_account_login"
                 android:textColor="@android:color/white"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:gravity="center"

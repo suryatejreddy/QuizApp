@@ -98,6 +98,7 @@
                 android:layout_marginTop="8dp"
                 app:backgroundTint="@android:color/white"
                 android:inputType="textPassword"
+                app:passwordToggleEnabled="true"
                 android:textColor="@android:color/white"
                 android:textColorHint="@android:color/white"/>
 
@@ -135,7 +136,7 @@
     <TextView android:id="@+id/link_signup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Don't have an account? Create one here"
+        android:text="@string/don_t_have_an_account_create_one_here"
         android:textColor="@android:color/white"
         android:gravity="center"
         android:background="?attr/selectableItemBackground"

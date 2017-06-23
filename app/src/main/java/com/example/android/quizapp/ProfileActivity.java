@@ -76,6 +76,7 @@ public class ProfileActivity extends AppCompatActivity {
     private static Menu MENU;
     private static ImageView profileImageView;
     private static ImageButton editButton;
+    private static TextView changePasswordTextView;
 
 
 
@@ -108,11 +109,14 @@ public class ProfileActivity extends AppCompatActivity {
         doneButton=(Button) findViewById(R.id.btn_edit_changes);
         profileImageView=(ImageView) findViewById(R.id.profile_image_profile);
         editButton=(ImageButton) findViewById(R.id.edit_button);
+        changePasswordTextView=(TextView) findViewById(R.id.link_change_password);
+
 
         nameEditText.setText(MainActivity.CURRENT_USER_NAME);
         emailEditText.setText(MainActivity.CURRENT_USER_EMAIL);
         dobEditText.setText(MainActivity.CURRENT_USER_DOB);
         editButton.setVisibility(View.GONE);
+        changePasswordTextView.setVisibility(View.GONE);
         profileImageView.setImageBitmap(MainActivity.CURRENT_USER_IMAGE_BITMAP);
 
         if(MainActivity.CURRENT_USER_GENDER.equals("M"))
@@ -137,6 +141,7 @@ public class ProfileActivity extends AppCompatActivity {
             femaleRadioButton.setEnabled(true);
             editButton.setVisibility(View.VISIBLE);
             doneButton.setVisibility(View.VISIBLE);
+            changePasswordTextView.setVisibility(View.VISIBLE);
             item.setVisible(false);
 
             myCalendar = Calendar.getInstance();
@@ -180,6 +185,15 @@ public class ProfileActivity extends AppCompatActivity {
                 public void onClick(View v) {
 
                     update();
+                }
+            });
+
+
+            changePasswordTextView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent=new Intent(getApplicationContext(), ChangePasswordActivity.class);
+                    startActivity(intent);
                 }
             });
 
@@ -307,6 +321,7 @@ public class ProfileActivity extends AppCompatActivity {
         femaleRadioButton.setEnabled(false);
         editButton.setVisibility(View.GONE);
         doneButton.setVisibility(View.GONE);
+        changePasswordTextView.setVisibility(View.GONE);
     }
 
     private void onUpdateSuccess() {
@@ -356,6 +371,7 @@ public class ProfileActivity extends AppCompatActivity {
         femaleRadioButton.setEnabled(false);
         editButton.setVisibility(View.GONE);
         doneButton.setVisibility(View.GONE);
+        changePasswordTextView.setVisibility(View.GONE);
     }
 
 

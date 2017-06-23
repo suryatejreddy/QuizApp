@@ -12,4 +12,7 @@
     <string name="sub_categories">Sub Categories</string>
     <bool name="is_tablet">false</bool>
     <string name="vertical_ellipsis">&#8942;</string>
+    <string name="change_password"><u><b>Change Password?</b></u></string>
+    <string name="have_an_account_login"><u><b>Have an account? Login</b></u></string>
+    <string name="don_t_have_an_account_create_one_here"><u><b>Don\'t have an account? Create one here</b></u></string>
 </resources>

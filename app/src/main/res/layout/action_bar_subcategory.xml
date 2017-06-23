@@ -17,6 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="left|center_vertical"
             android:textSize="20sp"
+            android:background="?attr/selectableItemBackgroundBorderless"
             android:gravity="center"
             android:textColor="@android:color/white"
             android:text="@string/title_activity_category"
@@ -30,6 +31,7 @@
         <ImageView
             android:layout_width="45dp"
             android:layout_height="45dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
             android:layout_gravity="right|center_vertical"
             android:id="@+id/app_bar_category_profile_image"/>
 

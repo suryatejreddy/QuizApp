@@ -6,6 +6,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -41,6 +44,14 @@ public class SubCustomAdapter extends RecyclerView.Adapter<SubCustomAdapter.SubN
         }
     }
 
+    private void setAnimation(View view)
+    {
+        Animation animation= AnimationUtils.loadAnimation(view.getContext(), android.R.anim.slide_in_left);
+        //Animation anim= new AlphaAnimation(0.0f, 1.0f);
+        //anim.setDuration(1000);
+        view.startAnimation(animation);
+    }
+
     @Override
     public SubNumberViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
     {
@@ -61,6 +72,7 @@ public class SubCustomAdapter extends RecyclerView.Adapter<SubCustomAdapter.SubN
         Log.d(TAG,"#"+position+" clicked");
         holder.bind(arrayForRecyclerView[position]);
 
+       // setAnimation(holder.itemView);
 
         if(arrayForRecyclerView[0].equals("Books"))
         {

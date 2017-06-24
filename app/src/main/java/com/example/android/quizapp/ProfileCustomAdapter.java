@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AlphaAnimation;
 import android.widget.TextView;
 
 /**
@@ -47,9 +48,17 @@ public class ProfileCustomAdapter extends RecyclerView.Adapter<ProfileCustomAdap
 
 
         Log.d("database", "#"+position+"clicked");
-        holder.bind("sample date", "sample cat", "sample score");
+        holder.bind(ProfileActivity.listGames.get(position).Date,ProfileActivity.listGames.get(position).Category , ProfileActivity.listGames.get(position).Score);
 
+       // setAnimation(holder.itemView);
 
+    }
+
+    private void setAnimation(View view)
+    {
+        AlphaAnimation anim= new AlphaAnimation(0.0f, 1.0f);
+        anim.setDuration(1000);
+        view.startAnimation(anim);
     }
 
     @Override
@@ -95,7 +104,7 @@ public class ProfileCustomAdapter extends RecyclerView.Adapter<ProfileCustomAdap
         @Override
         public void onClick(View v) {
             int clickedPosition=getAdapterPosition();
-
+            mOnClickListener.onListItemClick(clickedPosition);
         }
     }
 }

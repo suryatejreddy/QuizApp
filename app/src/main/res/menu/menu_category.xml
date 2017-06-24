@@ -25,7 +25,7 @@
             <item app:showAsAction="never"
                 android:icon="@drawable/ic_profile_icon"
                 android:id="@+id/display_game_scores"
-                android:title="Profile"/>
+                android:title="Your Games"/>
 
     <item app:showAsAction="never"
         android:orderInCategory="2"

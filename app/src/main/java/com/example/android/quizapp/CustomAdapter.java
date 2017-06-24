@@ -73,6 +73,9 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.NumberView
         Log.d(TAG,"#"+position);
         holder.bind(arrayForRecyclerView[position]);
         TextView im=(TextView) holder.itemView.findViewById(R.id.right_button);
+
+
+
         if(arrayForRecyclerView[position].equals("Entertainment") || arrayForRecyclerView[position].equals("Science"))
         {
             im.setText("›");

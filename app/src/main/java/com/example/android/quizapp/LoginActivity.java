@@ -21,6 +21,8 @@ import android.widget.Toast;
 
 import com.example.android.quizapp.data.ProfileContract;
 import com.example.android.quizapp.data.ProfileDbHelper;
+import com.example.android.quizapp.data.ScoreContract;
+import com.example.android.quizapp.data.ScoreDbHelper;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -55,6 +57,9 @@ public class LoginActivity extends AppCompatActivity {
                 cursor.moveToNext();
             }
         }
+
+
+
 
         final SharedPreferences sharedPreferences= PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         if(sharedPreferences.getBoolean("LOGIN_MODE",false))

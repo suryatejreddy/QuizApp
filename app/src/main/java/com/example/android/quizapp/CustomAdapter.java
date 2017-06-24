@@ -2,6 +2,7 @@ package com.example.android.quizapp;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -10,6 +11,8 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import java.util.Map;
 
@@ -64,6 +67,9 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.NumberView
 
     @Override
     public void onBindViewHolder(NumberViewHolder holder, int position) {
+        String color;
+        int backgroundColor;
+        int differenceInShade = 50;
         Log.d(TAG,"#"+position);
         holder.bind(arrayForRecyclerView[position]);
         TextView im=(TextView) holder.itemView.findViewById(R.id.right_button);
@@ -81,51 +87,99 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.NumberView
 
         if(arrayForRecyclerView[position].equals("GK"))
         {
-            holder.itemView.setBackgroundColor(holder.itemView.getResources().getColor(R.color.red));
+            backgroundColor = holder.itemView.getResources().getColor(R.color.red);
+            //((TextView) holder.itemView.findViewById(R.id.item_category)).setTextColor(backgroundColor);
+            color = Integer.toHexString(backgroundColor & 0x00ffffff);
+            //holder.itemView.findViewById(R.id.category_card_view).setBackgroundColor(getDarkerShade(color, differenceInShade));
+            //holder.itemView.setBackgroundColor(backgroundColor);
         }
         else if(arrayForRecyclerView[position].equals("Entertainment"))
         {
-            holder.itemView.setBackgroundColor(holder.itemView.getResources().getColor(R.color.material_yellow));
+            backgroundColor = holder.itemView.getResources().getColor(R.color.material_yellow);
+            //((TextView) holder.itemView.findViewById(R.id.item_category)).setTextColor(backgroundColor);
+            color = Integer.toHexString(backgroundColor & 0x00ffffff);
+            //holder.itemView.findViewById(R.id.category_card_view).setBackgroundColor(getDarkerShade(color, differenceInShade));
+            //holder.itemView.setBackgroundColor(backgroundColor);
         }
         else if(arrayForRecyclerView[position].equals("Science"))
         {
-            holder.itemView.setBackgroundColor(holder.itemView.getResources().getColor(R.color.material_purple));
+            backgroundColor = holder.itemView.getResources().getColor(R.color.material_purple);
+            //((TextView) holder.itemView.findViewById(R.id.item_category)).setTextColor(backgroundColor);
+            color = Integer.toHexString(backgroundColor & 0x00ffffff);
+            //holder.itemView.findViewById(R.id.category_card_view).setBackgroundColor(getDarkerShade(color, differenceInShade));
+            //holder.itemView.setBackgroundColor(backgroundColor);
         }
         else if(arrayForRecyclerView[position].equals("Mythology"))
         {
-            holder.itemView.setBackgroundColor(holder.itemView.getResources().getColor(R.color.material_orange));
+            backgroundColor = holder.itemView.getResources().getColor(R.color.material_orange);
+            //((TextView) holder.itemView.findViewById(R.id.item_category)).setTextColor(backgroundColor);
+            color = Integer.toHexString(backgroundColor & 0x00ffffff);
+            //holder.itemView.findViewById(R.id.category_card_view).setBackgroundColor(getDarkerShade(color, differenceInShade));
+            ////holder.itemView.setBackgroundColor(backgroundColor);
         }
         else if(arrayForRecyclerView[position].equals("Sports"))
         {
-            holder.itemView.setBackgroundColor(holder.itemView.getResources().getColor(R.color.material_green));
+            backgroundColor = holder.itemView.getResources().getColor(R.color.material_green);
+            //((TextView) holder.itemView.findViewById(R.id.item_category)).setTextColor(backgroundColor);
+            color = Integer.toHexString(backgroundColor & 0x00ffffff);
+            //holder.itemView.findViewById(R.id.category_card_view).setBackgroundColor(getDarkerShade(color, differenceInShade));
+            ////holder.itemView.setBackgroundColor(backgroundColor);
         }
         else if(arrayForRecyclerView[position].equals("Geography"))
         {
-            holder.itemView.setBackgroundColor(holder.itemView.getResources().getColor(R.color.material_amber));
+            backgroundColor = holder.itemView.getResources().getColor(R.color.material_amber);
+            //((TextView) holder.itemView.findViewById(R.id.item_category)).setTextColor(backgroundColor);
+            color = Integer.toHexString(backgroundColor & 0x00ffffff);
+            //holder.itemView.findViewById(R.id.category_card_view).setBackgroundColor(getDarkerShade(color, differenceInShade));
+            //holder.itemView.setBackgroundColor(backgroundColor);
         }
         else if(arrayForRecyclerView[position].equals("History"))
         {
-            holder.itemView.setBackgroundColor(holder.itemView.getResources().getColor(R.color.red));
+            backgroundColor = holder.itemView.getResources().getColor(R.color.red);
+            //((TextView) holder.itemView.findViewById(R.id.item_category)).setTextColor(backgroundColor);
+            color = Integer.toHexString(holder.itemView.getResources().getColor(R.color.red) & 0x00ffffff);
+            //holder.itemView.findViewById(R.id.category_card_view).setBackgroundColor(getDarkerShade(color, differenceInShade));
+            //holder.itemView.setBackgroundColor(holder.itemView.getResources().getColor(R.color.red));
         }
         else if(arrayForRecyclerView[position].equals("Politics"))
         {
-            holder.itemView.setBackgroundColor(holder.itemView.getResources().getColor(R.color.material_yellow));
+            backgroundColor = holder.itemView.getResources().getColor(R.color.red);
+            //((TextView) holder.itemView.findViewById(R.id.item_category)).setTextColor(backgroundColor);
+            color = Integer.toHexString(holder.itemView.getResources().getColor(R.color.material_yellow) & 0x00ffffff);
+            //holder.itemView.findViewById(R.id.category_card_view).setBackgroundColor(getDarkerShade(color, differenceInShade));
+            //holder.itemView.setBackgroundColor(holder.itemView.getResources().getColor(R.color.material_yellow));
         }
         else if(arrayForRecyclerView[position].equals("Art"))
         {
-            holder.itemView.setBackgroundColor(holder.itemView.getResources().getColor(R.color.material_purple));
+            backgroundColor = holder.itemView.getResources().getColor(R.color.red);
+            //((TextView) holder.itemView.findViewById(R.id.item_category)).setTextColor(backgroundColor);
+            color = Integer.toHexString(holder.itemView.getResources().getColor(R.color.material_purple) & 0x00ffffff);
+            //holder.itemView.findViewById(R.id.category_card_view).setBackgroundColor(getDarkerShade(color, differenceInShade));
+            //holder.itemView.setBackgroundColor(holder.itemView.getResources().getColor(R.color.material_purple));
         }
         else if(arrayForRecyclerView[position].equals("Celebrities"))
         {
-            holder.itemView.setBackgroundColor(holder.itemView.getResources().getColor(R.color.material_orange));
+            backgroundColor = holder.itemView.getResources().getColor(R.color.red);
+            //((TextView) holder.itemView.findViewById(R.id.item_category)).setTextColor(backgroundColor);
+            color = Integer.toHexString(holder.itemView.getResources().getColor(R.color.material_orange) & 0x00ffffff);
+            //holder.itemView.findViewById(R.id.category_card_view).setBackgroundColor(getDarkerShade(color, differenceInShade));
+            //holder.itemView.setBackgroundColor(holder.itemView.getResources().getColor(R.color.material_orange));
         }
         else if(arrayForRecyclerView[position].equals("Animals"))
         {
-            holder.itemView.setBackgroundColor(holder.itemView.getResources().getColor(R.color.material_green));
+            backgroundColor = holder.itemView.getResources().getColor(R.color.red);
+            //((TextView) holder.itemView.findViewById(R.id.item_category)).setTextColor(backgroundColor);
+            color = Integer.toHexString(holder.itemView.getResources().getColor(R.color.material_green) & 0x00ffffff);
+            //holder.itemView.findViewById(R.id.category_card_view).setBackgroundColor(getDarkerShade(color, differenceInShade));
+            //holder.itemView.setBackgroundColor(holder.itemView.getResources().getColor(R.color.material_green));
         }
         else if(arrayForRecyclerView[position].equals("Vehicles"))
         {
-            holder.itemView.setBackgroundColor(holder.itemView.getResources().getColor(R.color.material_amber));
+            backgroundColor = holder.itemView.getResources().getColor(R.color.red);
+            //((TextView) holder.itemView.findViewById(R.id.item_category)).setTextColor(backgroundColor);
+            color = Integer.toHexString(holder.itemView.getResources().getColor(R.color.material_amber) & 0x00ffffff);
+            //holder.itemView.findViewById(R.id.category_card_view).setBackgroundColor(getDarkerShade(color, differenceInShade));
+            //holder.itemView.setBackgroundColor(holder.itemView.getResources().getColor(R.color.material_amber));
         }
 
 
@@ -181,6 +235,16 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.NumberView
 
     }
 
+    @NonNull
+    private int getDarkerShade(String color, int differenceInShade) {
+        int red = (Integer.parseInt(color.substring(0, 2), 16 ) - differenceInShade) % 256;
+        int green = (Integer.parseInt(color.substring(2, 4), 16 ) - differenceInShade) % 256;
+        int blue = (Integer.parseInt(color.substring(4, 6), 16 ) - differenceInShade) % 256;
+        String newColor = ("#" + Integer.toHexString(0x100 |red).substring(1, 3) +
+                Integer.toHexString(0x100 |green).substring(1, 3) +
+                Integer.toHexString(0x100 |blue).substring(1, 3)).trim();
+        return Color.parseColor(newColor);
+    }
 
 
     @Override

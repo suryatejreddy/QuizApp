@@ -7,19 +7,14 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v7.app.ActionBar;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 import android.widget.Toast;
 
 /**
@@ -75,6 +70,7 @@ public class SubCategoryFragment extends Fragment implements SubCustomAdapter.Li
         mCategoryList.setLayoutManager(layoutManager);
 
         mCategoryList.setHasFixedSize(true);
+
         mAdapter=new SubCustomAdapter(NUM_LIST_ITEMS, this);
         mCategoryList.setAdapter(mAdapter);
         mAdapter.setRecyclerViewArray(NUM_LIST_ITEMS);
@@ -95,9 +91,17 @@ public class SubCategoryFragment extends Fragment implements SubCustomAdapter.Li
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id=item.getItemId();
+
+        if(id==R.id.display_game_scores)
+        {
+            Intent intent=new Intent(getContext(), ProfileActivity.class);
+            startActivity(intent);
+            return true;
+        }
+
         if(id==R.id.profile_activity_open)
         {
-            Intent intent=new Intent(getContext(),ProfileActivity.class);
+            Intent intent=new Intent(getContext(),AccountActivity.class);
             startActivity(intent);
             return true;
         }
@@ -107,8 +111,9 @@ public class SubCategoryFragment extends Fragment implements SubCustomAdapter.Li
             Intent intent=new Intent(getContext(), LoginActivity.class);
             SharedPreferences preferences= PreferenceManager.getDefaultSharedPreferences(getContext());
             preferences.edit().putBoolean("LOGIN_MODE", false).apply();
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK |Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
-            getActivity().finish();
+
         }
 
         return super.onOptionsItemSelected(item);
@@ -164,7 +169,7 @@ public class SubCategoryFragment extends Fragment implements SubCustomAdapter.Li
                     break;
 
                 case 9:
-                    toastMessage = "Japanese Anime & Manga";
+                    toastMessage = "Anime & Manga";
                     break;
 
                 default:

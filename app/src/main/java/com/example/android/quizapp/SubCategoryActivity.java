@@ -4,8 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -57,7 +55,7 @@ public class SubCategoryActivity extends AppCompatActivity {
             ((ImageView) findViewById(R.id.app_bar_category_profile_image)).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent=new Intent(getApplicationContext(), ProfileActivity.class);
+                    Intent intent=new Intent(getApplicationContext(), AccountActivity.class);
                     startActivity(intent);
                 }
             });
@@ -89,7 +87,7 @@ public class SubCategoryActivity extends AppCompatActivity {
             ((ImageView ) findViewById(R.id.app_bar_category_profile_image)).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent=new Intent(getApplicationContext(), ProfileActivity.class);
+                    Intent intent=new Intent(getApplicationContext(), AccountActivity.class);
                     startActivity(intent);
                 }
             });

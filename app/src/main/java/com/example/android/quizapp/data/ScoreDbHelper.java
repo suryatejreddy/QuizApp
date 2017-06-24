@@ -29,8 +29,7 @@ public class ScoreDbHelper extends SQLiteOpenHelper
                 + ScoreContract.ScoreEntry.COLUMN_CATEGORY+" TEXT NOT NULL, "
                 + ScoreContract.ScoreEntry.COLUMN_GAME_SCORE+" TEXT NOT NULL, "
                 + ScoreContract.ScoreEntry.COLUMN_TIMESTAMP+" DATETIME  DEFAULT CURRENT_TIMESTAMP, "
-                + ScoreContract.ScoreEntry.COLUMN_PLAYER_ID+" INTEGER, "
-                +" FOREIGN KEY ("+ ScoreContract.ScoreEntry.COLUMN_PLAYER_ID+") REFERENCES "+ ProfileContract.ProfileEntry.TABLE_NAME+"("+ ProfileContract.ProfileEntry._ID+")"
+                + ScoreContract.ScoreEntry.COLUMN_PLAYER_ID+" INTEGER NOT NULL "
                 +");";
         db.execSQL(CREATE_TABLE);
     }

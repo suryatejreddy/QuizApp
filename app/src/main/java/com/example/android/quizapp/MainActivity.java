@@ -136,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
             ((ImageView) findViewById(R.id.app_bar_main_profile_image)).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent=new Intent(getApplicationContext(), ProfileActivity.class);
+                    Intent intent=new Intent(getApplicationContext(), AccountActivity.class);
                     startActivity(intent);
                 }
             });

@@ -40,7 +40,7 @@
             android:label="@string/title_activity_category"
             android:theme="@style/CategoryTheme" />
         <activity
-            android:name=".ProfileActivity"
+            android:name=".AccountActivity"
             android:label="@string/title_activity_profile"
             android:parentActivityName=".MainActivity"
             android:theme="@style/ProfileTheme">
@@ -61,15 +61,16 @@
         <activity
             android:name=".SignUpActivity"
             android:theme="@style/LoginTheme" />
-        <activity android:theme="@style/ProfileTheme"
+        <activity
             android:name=".ChangePasswordActivity"
             android:label="Change Password"
-            android:parentActivityName=".ProfileActivity">
-
+            android:parentActivityName=".AccountActivity"
+            android:theme="@style/ProfileTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ProfileActivity"/>
+                android:value=".AccountActivity" />
         </activity>
+        <activity android:name=".ProfileActivity"></activity>
     </application>
 
 </manifest>

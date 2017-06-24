@@ -15,7 +15,6 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -52,7 +51,7 @@ public class MainCategoryFragment extends Fragment implements CustomAdapter.List
     //map containing categories
 
     MapObject[] GKObject = new MapObject[]{new MapObject(9, "")};
-    MapObject[] EntertainmentObject = new MapObject[]{new MapObject(10, "Books"), new MapObject(11, "Film"), new MapObject(12, "Music"), new MapObject(13, "Musicals & Theatres"), new MapObject(14, "Television"), new MapObject(15, "Video Games"), new MapObject(16, "Board Games"), new MapObject(29, "Comics"), new MapObject(32, "Cartoon & Animations"), new MapObject(31, "Japanese Anime & Manga")};
+    MapObject[] EntertainmentObject = new MapObject[]{new MapObject(10, "Books"), new MapObject(11, "Film"), new MapObject(12, "Music"), new MapObject(13, "Musicals & Theatres"), new MapObject(14, "Television"), new MapObject(15, "Video Games"), new MapObject(16, "Board Games"), new MapObject(29, "Comics"), new MapObject(32, "Cartoon & Animations"), new MapObject(31, "Anime & Manga")};
     MapObject[] ScienceObject = new MapObject[]{new MapObject(17, "Nature"), new MapObject(18, "Computers"), new MapObject(19, "Mathematics"), new MapObject(30, "Gadgets")};
     MapObject[] MythologyObject = new MapObject[]{new MapObject(20, "")};
     MapObject[] SportsObject = new MapObject[]{new MapObject(21, "")};
@@ -130,8 +129,16 @@ public class MainCategoryFragment extends Fragment implements CustomAdapter.List
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
+
+        if(id== R.id.display_game_scores)
+        {
+            Intent intent=new Intent(getContext(), ProfileActivity.class);
+            startActivity(intent);
+            return true;
+        }
+
         if (id == R.id.profile_activity_open) {
-            Intent intent = new Intent(getContext(), ProfileActivity.class);
+            Intent intent = new Intent(getContext(), AccountActivity.class);
             startActivity(intent);
             return true;
         }

@@ -6,11 +6,42 @@
 
 
 
+    <item
+        android:id="@+id/id_more"
+        app:showAsAction="always"
+        android:title="more"
+        android:icon="@drawable/ic_three_dots"
+        >
 
-    <item app:showAsAction="always"
-        android:icon="@drawable/ic_edit_profile"
-        android:orderInCategory="1"
-        android:id="@+id/edit_profile_open"
-        android:title="Edit"/>
+        <menu>
+
+
+            <item app:showAsAction="never"
+                android:icon="@drawable/ic_edit_profile_grey"
+                android:orderInCategory="1"
+                android:id="@+id/edit_profile_open"
+                android:title="Edit"/>
+
+
+
+            <item app:showAsAction="never"
+                android:orderInCategory="2"
+                android:title="Delete Account"
+                android:id="@+id/delete_button"
+                android:icon="@drawable/ic_delete_icon"/>
+
+
+
+            <item app:showAsAction="never"
+                android:orderInCategory="3"
+                android:id="@+id/logout_btn"
+                android:title="Logout"
+                android:icon="@drawable/ic_logout_button_grey"/>
+
+
+        </menu>
+
+
+</item>
 
 </menu>

@@ -14,11 +14,18 @@
         <menu>
 
 
+
+
     <item app:showAsAction="never"
         android:icon="@drawable/ic_user_profile_grey"
         android:orderInCategory="1"
         android:id="@+id/profile_activity_open"
-        android:title="Profile"/>
+        android:title="Account"/>
+
+            <item app:showAsAction="never"
+                android:icon="@drawable/ic_profile_icon"
+                android:id="@+id/display_game_scores"
+                android:title="Profile"/>
 
     <item app:showAsAction="never"
         android:orderInCategory="2"

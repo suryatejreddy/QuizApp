@@ -289,6 +289,7 @@ public class QuizActivity extends AppCompatActivity {
                 Intent intentToStartResult=new Intent(this,DisplayResultActivity.class);
                 intentToStartResult.putExtra("Correct",NUMBER_CORRECT);
                 intentToStartResult.putExtra("Incorrect",10-NUMBER_CORRECT);
+                intentToStartResult.putExtra("Category", CATEGORY_PASSED);
                 NUMBER_QUESTIONS_COMPLETED=0;
                 progressBar.setProgress(0);
                 PROGRESS=0;
@@ -329,6 +330,7 @@ public class QuizActivity extends AppCompatActivity {
                 Intent intentToStartResult=new Intent(this,DisplayResultActivity.class);
                 intentToStartResult.putExtra("Correct",NUMBER_CORRECT);
                 intentToStartResult.putExtra("Incorrect",10-NUMBER_CORRECT);
+                intentToStartResult.putExtra("Category", CATEGORY_PASSED);
                 NUMBER_QUESTIONS_COMPLETED=0;
                 progressBar.setProgress(0);
                 PROGRESS=0;
@@ -369,6 +371,7 @@ public class QuizActivity extends AppCompatActivity {
                 Intent intentToStartResult=new Intent(this,DisplayResultActivity.class);
                 intentToStartResult.putExtra("Correct",NUMBER_CORRECT);
                 intentToStartResult.putExtra("Incorrect",10-NUMBER_CORRECT);
+                intentToStartResult.putExtra("Category", CATEGORY_PASSED);
                 NUMBER_QUESTIONS_COMPLETED=0;
                 progressBar.setProgress(0);
                 PROGRESS=0;
@@ -409,6 +412,7 @@ public class QuizActivity extends AppCompatActivity {
                 Intent intentToStartResult=new Intent(this,DisplayResultActivity.class);
                 intentToStartResult.putExtra("Correct",NUMBER_CORRECT);
                 intentToStartResult.putExtra("Incorrect",10-NUMBER_CORRECT);
+                intentToStartResult.putExtra("Category", CATEGORY_PASSED);
                 NUMBER_QUESTIONS_COMPLETED=0;
                 progressBar.setProgress(0);
                 PROGRESS=0;

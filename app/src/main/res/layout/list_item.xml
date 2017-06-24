@@ -3,32 +3,43 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    >
+    android:background="@color/activity_grey_background">
 
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/icon_category"
-        android:layout_gravity="start|center_vertical"/>
-
-    <TextView
+    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/category_card_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        style="@style/TextAppearance.AppCompat.Title"
-        android:id="@+id/item_category"
-        android:fontFamily="sans-serif-condensed"
-        android:padding="16dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginStart="20dp"
-        android:gravity="start"
-        android:textColor="#02141C"
-        android:textSize="30sp"
-        android:layout_gravity="center_vertical"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        />
+        android:layout_height="75dp"
+        android:layout_gravity="center"
+        card_view:cardCornerRadius="10dp"
+        android:layout_margin="@dimen/card_margin"
+        card_view:cardElevation="10dp"
+        card_view:cardBackgroundColor= "@color/activity_red_background">
 
-    <!--<ImageButton-->
+        <ImageView
+            android:id="@+id/icon_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/list_margin"
+            android:layout_gravity="start|center_vertical"
+            android:layout_marginLeft="@dimen/list_margin"
+            />
+
+        <TextView
+            android:id="@+id/item_category"
+            style="@style/TextAppearance.AppCompat.Title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="40dp"
+            android:layout_marginStart="40dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="start"
+            android:padding="16dp"
+            android:textColor="#02141C"
+            android:textSize="30sp" />
+
+        <!--<ImageButton-->
         <!--android:layout_width="wrap_content"-->
         <!--android:layout_height="wrap_content"-->
         <!--android:id="@+id/right_button"-->
@@ -38,18 +49,19 @@
         <!--android:background="?attr/selectableItemBackgroundBorderless"-->
         <!--/>-->
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/right_button"
-        android:textSize="25sp"
-        android:textColor="@android:color/black"
-        android:textStyle="bold"
-        android:fontFamily="monospace"
-        android:layout_gravity="end|center_vertical"
-        android:visibility="gone"
-        android:layout_marginRight="10dp"
+        <TextView
+            android:id="@+id/right_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|center_vertical"
+            android:layout_marginRight="10dp"
+            android:fontFamily="monospace"
+            android:textColor="@android:color/black"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:visibility="gone"
 
-        />
+            />
+    </android.support.v7.widget.CardView>
 
 </FrameLayout>

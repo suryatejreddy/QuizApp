@@ -32,7 +32,7 @@ public class SubCustomAdapter extends RecyclerView.Adapter<SubCustomAdapter.SubN
     {
         if(numberOfItems==10)
         {
-            arrayForRecyclerView=new String[]{"Books","Film","Music","Musicals & Theatres","Television","Video Games","Board Games","Comics","Cartoon & Animations","Japanese Anime & Manga"};
+            arrayForRecyclerView=new String[]{"Books","Film","Music","Musicals & Theatres","Television","Video Games","Board Games","Comics","Cartoon & Animations","Anime & Manga"};
 
         }
         else if(numberOfItems==4)
@@ -69,43 +69,43 @@ public class SubCustomAdapter extends RecyclerView.Adapter<SubCustomAdapter.SubN
 
             if(arrayForRecyclerView[position].equals("Books"))
             {
-                holder.itemView.setBackgroundColor(holder.itemView.getResources().getColor(R.color.material_amber));
+               // holder.itemView.setBackgroundColor(holder.itemView.getResources().getColor(R.color.material_amber));
             }
             else if(arrayForRecyclerView[position].equals("Film"))
             {
-                holder.itemView.setBackgroundColor(holder.itemView.getResources().getColor(R.color.material_green));
+             //   holder.itemView.setBackgroundColor(holder.itemView.getResources().getColor(R.color.material_green));
             }
             else if(arrayForRecyclerView[position].equals("Music"))
             {
-                holder.itemView.setBackgroundColor(holder.itemView.getResources().getColor(R.color.material_orange));
+               // holder.itemView.setBackgroundColor(holder.itemView.getResources().getColor(R.color.material_orange));
             }
             else if(arrayForRecyclerView[position].equals("Musicals & Theatres"))
             {
-                holder.itemView.setBackgroundColor(holder.itemView.getResources().getColor(R.color.material_purple));
+                //holder.itemView.setBackgroundColor(holder.itemView.getResources().getColor(R.color.material_purple));
             }
             else if(arrayForRecyclerView[position].equals("Television"))
             {
-                holder.itemView.setBackgroundColor(holder.itemView.getResources().getColor(R.color.red));
+                //holder.itemView.setBackgroundColor(holder.itemView.getResources().getColor(R.color.red));
             }
             else if(arrayForRecyclerView[position].equals("Video Games"))
             {
-                holder.itemView.setBackgroundColor(holder.itemView.getResources().getColor(R.color.material_amber));
+                //holder.itemView.setBackgroundColor(holder.itemView.getResources().getColor(R.color.material_amber));
             }
             else if(arrayForRecyclerView[position].equals("Board Games"))
             {
-                holder.itemView.setBackgroundColor(holder.itemView.getResources().getColor(R.color.material_green));
+                //holder.itemView.setBackgroundColor(holder.itemView.getResources().getColor(R.color.material_green));
             }
             else if(arrayForRecyclerView[position].equals("Comics"))
             {
-                holder.itemView.setBackgroundColor(holder.itemView.getResources().getColor(R.color.material_orange));
+                //holder.itemView.setBackgroundColor(holder.itemView.getResources().getColor(R.color.material_orange));
             }
             else if(arrayForRecyclerView[position].equals("Cartoon & Animations"))
             {
-                holder.itemView.setBackgroundColor(holder.itemView.getResources().getColor(R.color.material_purple));
+                //holder.itemView.setBackgroundColor(holder.itemView.getResources().getColor(R.color.material_purple));
             }
-            else if(arrayForRecyclerView[position].equals("Japanese Anime & Manga"))
+            else if(arrayForRecyclerView[position].equals("Anime & Manga"))
             {
-                holder.itemView.setBackgroundColor(holder.itemView.getResources().getColor(R.color.red));
+                //holder.itemView.setBackgroundColor(holder.itemView.getResources().getColor(R.color.red));
             }
         }
 
@@ -116,19 +116,19 @@ public class SubCustomAdapter extends RecyclerView.Adapter<SubCustomAdapter.SubN
 
             if(arrayForRecyclerView[position].equals("Nature"))
             {
-                holder.itemView.setBackgroundColor(holder.itemView.getResources().getColor(R.color.material_amber));
+                //holder.itemView.setBackgroundColor(holder.itemView.getResources().getColor(R.color.material_amber));
             }
             else if(arrayForRecyclerView[position].equals("Computers"))
             {
-                holder.itemView.setBackgroundColor(holder.itemView.getResources().getColor(R.color.material_green));
+                //holder.itemView.setBackgroundColor(holder.itemView.getResources().getColor(R.color.material_green));
             }
             else if(arrayForRecyclerView[position].equals("Mathematics"))
             {
-                holder.itemView.setBackgroundColor(holder.itemView.getResources().getColor(R.color.material_orange));
+                //holder.itemView.setBackgroundColor(holder.itemView.getResources().getColor(R.color.material_orange));
             }
             else if(arrayForRecyclerView[position].equals("Gadgets"))
             {
-                holder.itemView.setBackgroundColor(holder.itemView.getResources().getColor(R.color.material_purple));
+                //holder.itemView.setBackgroundColor(holder.itemView.getResources().getColor(R.color.material_purple));
             }
         }
 
@@ -172,7 +172,7 @@ public class SubCustomAdapter extends RecyclerView.Adapter<SubCustomAdapter.SubN
             {
                 ((ImageView) holder.itemView.findViewById(R.id.icon_category)).setImageResource(R.drawable.ic_cartoon_icon);
             }
-            else if(arrayForRecyclerView[position].equals("Japanese Anime & Manga"))
+            else if(arrayForRecyclerView[position].equals("Anime & Manga"))
             {
                 ((ImageView) holder.itemView.findViewById(R.id.icon_category)).setImageResource(R.drawable.ic_manga_icon);
             }

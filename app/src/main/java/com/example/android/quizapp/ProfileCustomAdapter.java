@@ -9,6 +9,11 @@ import android.view.ViewGroup;
 import android.view.animation.AlphaAnimation;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.Collections;
+
+import static com.example.android.quizapp.ProfileActivity.listGames;
+
 /**
  * Created by vishaal on 24/6/17.
  */
@@ -32,6 +37,8 @@ public class ProfileCustomAdapter extends RecyclerView.Adapter<ProfileCustomAdap
         int layoutForListItem= R.layout.score_list_item;
         LayoutInflater inflater=LayoutInflater.from(context);
 
+
+
         View view= inflater.inflate(layoutForListItem, parent, false);
 
         ProfileCustomAdapter.ProfileNumberViewHolder viewHolder = new ProfileNumberViewHolder(view);
@@ -48,7 +55,7 @@ public class ProfileCustomAdapter extends RecyclerView.Adapter<ProfileCustomAdap
 
 
         Log.d("database", "#"+position+"clicked");
-        holder.bind(ProfileActivity.listGames.get(position).Date,ProfileActivity.listGames.get(position).Category , ProfileActivity.listGames.get(position).Score);
+        holder.bind(listGames.get(position).Date, listGames.get(position).Category , listGames.get(position).Score);
 
        // setAnimation(holder.itemView);
 

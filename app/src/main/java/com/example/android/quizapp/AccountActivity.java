@@ -329,6 +329,7 @@ public class AccountActivity extends AppCompatActivity {
                                         Intent intent=new Intent(getApplicationContext(), LoginActivity.class);
                                         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
                                         preferences.edit().putBoolean("LOGIN_MODE", false).apply();
+                                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK |Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                         startActivity(intent);
                                         finish();
                                     }

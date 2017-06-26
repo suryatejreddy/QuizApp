@@ -27,10 +27,10 @@ import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Locale;
 
-public class ProfileActivity extends AppCompatActivity implements ProfileCustomAdapter.ListItemClickListener
-{
+public class ProfileActivity extends AppCompatActivity implements ProfileCustomAdapter.ListItemClickListener {
 
     private ProfileCustomAdapter mAdapter;
     private RecyclerView mScoreList;
@@ -41,19 +41,6 @@ public class ProfileActivity extends AppCompatActivity implements ProfileCustomA
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile);
-
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Your Games");
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.activity_grey_background)));
-        getSupportActionBar().setHomeAsUpIndicator(getResources().getDrawable(R.drawable.ic_back_button));
-
-        mScoreList= (RecyclerView) findViewById(R.id.scores_list);
-        LinearLayoutManager layoutManager=new LinearLayoutManager(getApplicationContext());
-        mScoreList.setLayoutManager(layoutManager);
-
-        mScoreList.setHasFixedSize(false);
 
 
         listGames = new ArrayList<StringObject>();
@@ -69,7 +56,7 @@ public class ProfileActivity extends AppCompatActivity implements ProfileCustomA
 
 
                 listGames.add(new StringObject(time, categ, score));
-                Log.d("database","listgames: "+ categ+", "+score+", "+pid+" ,"+time);
+                Log.d("database", "listgames: " + categ + ", " + score + ", " + pid + " ," + time);
                 DateTimeFormatter inputFormatter = DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:ss").withLocale(Locale.US);
 
                 DateTime parsed = inputFormatter.parseDateTime(time);
@@ -90,9 +77,38 @@ public class ProfileActivity extends AppCompatActivity implements ProfileCustomA
         }
 
 
-        NUM_LIST_ITEMS=listGames.size();
-        mAdapter=new ProfileCustomAdapter(NUM_LIST_ITEMS, this);
-        mScoreList.setAdapter(mAdapter);
+        if (listGames.size() == 0) {
+
+            setContentView(R.layout.empty_score_list);
+
+
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setTitle("Your Games");
+            getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.activity_grey_background)));
+            getSupportActionBar().setHomeAsUpIndicator(getResources().getDrawable(R.drawable.ic_back_button));
+
+        } else {
+            setContentView(R.layout.activity_profile);
+
+            mScoreList = (RecyclerView) findViewById(R.id.scores_list);
+            LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
+            mScoreList.setLayoutManager(layoutManager);
+
+            mScoreList.setHasFixedSize(false);
+
+            NUM_LIST_ITEMS = listGames.size();
+
+            Collections.reverse(listGames);
+
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setTitle("Your Games");
+            getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.activity_grey_background)));
+            getSupportActionBar().setHomeAsUpIndicator(getResources().getDrawable(R.drawable.ic_back_button));
+
+            mAdapter = new ProfileCustomAdapter(NUM_LIST_ITEMS, this);
+            mScoreList.setAdapter(mAdapter);
 
 //        //ListView listGameScores = (ListView) findViewById(R.id.list_game_scores);
 //        //ArrayList<String> listGames = new ArrayList<String>();
@@ -138,36 +154,36 @@ public class ProfileActivity extends AppCompatActivity implements ProfileCustomA
 //                Toast.makeText(getApplicationContext(), ((TextView) view).getText().toString(), Toast.LENGTH_SHORT).show();
 //            }
 //        });
-    }
-
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id=item.getItemId();
-
-        Log.d("database1","onOptionsItem called");
-        if(id==android.R.id.home){
-            finish();
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public void onListItemClick(int clickedItemListIndex) {
-
-        //Toast.makeText(getApplicationContext(), ""+clickedItemListIndex, Toast.LENGTH_SHORT).show();
-    }
-
-    class StringObject
-    {
-        String Date;
-        String Category;
-        String Score;
-
-        public StringObject(String date, String category, String score){
-            this.Date=date;
-            this.Category=category;
-            this.Score=score;
         }
     }
-}
+
+
+        @Override
+        public boolean onOptionsItemSelected (MenuItem item){
+            int id = item.getItemId();
+
+            Log.d("database1", "onOptionsItem called");
+            if (id == android.R.id.home) {
+                finish();
+            }
+            return super.onOptionsItemSelected(item);
+        }
+
+        @Override
+        public void onListItemClick ( int clickedItemListIndex){
+
+            //Toast.makeText(getApplicationContext(), ""+clickedItemListIndex, Toast.LENGTH_SHORT).show();
+        }
+
+        class StringObject {
+            String Date;
+            String Category;
+            String Score;
+
+            public StringObject(String date, String category, String score) {
+                this.Date = date;
+                this.Category = category;
+                this.Score = score;
+            }
+        }
+    }

@@ -46,14 +46,16 @@
             android:layout_weight="1"
             android:orientation="horizontal">
 
-            <FrameLayout
+            <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
+                app:cardBackgroundColor="@color/dark_red"
+                app:cardCornerRadius="10dp"
                 android:layout_weight="1"
                 android:padding="25dp"
                 android:layout_gravity="center"
-                android:background="@color/dark_red">
+                >
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -65,16 +67,18 @@
                     android:fontFamily="casual"
                     android:background="?attr/selectableItemBackgroundBorderless"/>
 
-            </FrameLayout>
+            </android.support.v7.widget.CardView>
 
-            <FrameLayout
+            <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
+                app:cardBackgroundColor="@color/dark_red"
+                app:cardCornerRadius="10dp"
                 android:layout_weight="1"
                 android:padding="25dp"
                 android:layout_gravity="center"
-                android:background="@color/dark_red">
+                >
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -87,7 +91,7 @@
                     android:background="?attr/selectableItemBackgroundBorderless"/>
 
 
-            </FrameLayout>
+           </android.support.v7.widget.CardView>
 
         </LinearLayout>
 
@@ -132,14 +136,16 @@
             android:layout_weight="1"
             android:orientation="horizontal">
 
-            <FrameLayout
+            <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
+                app:cardBackgroundColor="@color/dark_red"
+                app:cardCornerRadius="10dp"
                 android:layout_weight="1"
                 android:padding="25dp"
                 android:layout_gravity="center"
-                android:background="@color/dark_red">
+                >
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -151,16 +157,18 @@
                     android:id="@id/answer_button_3"
                     android:background="?attr/selectableItemBackgroundBorderless"/>
 
-            </FrameLayout>
+            </android.support.v7.widget.CardView>
 
-            <FrameLayout
+            <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:padding="25dp"
+                app:cardBackgroundColor="@color/dark_red"
+                app:cardCornerRadius="10dp"
                 android:layout_weight="1"
+                android:padding="25dp"
                 android:layout_gravity="center"
-                android:background="@color/dark_red">
+                >
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -173,7 +181,7 @@
                     android:background="?attr/selectableItemBackgroundBorderless"/>
 
 
-            </FrameLayout>
+            </android.support.v7.widget.CardView>
 
         </LinearLayout>
 

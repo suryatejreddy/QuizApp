@@ -7,6 +7,7 @@ import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.PersistableBundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -87,6 +88,11 @@ public class QuizActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
 
+
+        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar().setCustomView(R.layout.action_bar_quiz);
+
+
         QuestionTextView = (TextView) findViewById(R.id.question_text_view);
         NextButton = (Button) findViewById(R.id.next_button);
         AnswerButton1 = (Button) findViewById(R.id.answer_button_1);
@@ -106,6 +112,8 @@ public class QuizActivity extends AppCompatActivity {
 
 
             progressBar.setProgress(PROGRESS);
+            if(((TextView) findViewById(R.id.app_bar_main_quiz_score))!=null)
+            ((TextView) findViewById(R.id.app_bar_main_quiz_score)).setText(PROGRESS/10+"/10");
 
 
             AnswerButton1.setVisibility(View.GONE);
@@ -122,7 +130,13 @@ public class QuizActivity extends AppCompatActivity {
 
             Intent intent = getIntent();
             if (intent.hasExtra("ActionBar")) {
-                getSupportActionBar().setTitle(intent.getStringExtra("ActionBar"));
+
+                if(((TextView) findViewById(R.id.app_bar_quiz_view))!=null)
+                {
+
+                    ((TextView) findViewById(R.id.app_bar_quiz_view)).setText(intent.getStringExtra("ActionBar"));
+                }
+                //getSupportActionBar().setTitle(intent.getStringExtra("ActionBar"));
                 CATEGORY_PASSED = intent.getStringExtra("ActionBar");
             }
 
@@ -207,6 +221,8 @@ public class QuizActivity extends AppCompatActivity {
                                     Intent intentToStartMain=new Intent(getApplicationContext(),MainActivity.class);
                                     NUMBER_QUESTIONS_COMPLETED=0;
                                     progressBar.setProgress(0);
+                                    if(((TextView) findViewById(R.id.app_bar_main_quiz_score))!=null)
+                                    ((TextView) findViewById(R.id.app_bar_main_quiz_score)).setText("0/10");
                                     PROGRESS=0;
                                     NUMBER_CORRECT=0;
                                     startActivity(intentToStartMain);
@@ -270,6 +286,8 @@ public class QuizActivity extends AppCompatActivity {
             PROGRESS+=10;
             NUMBER_QUESTIONS_COMPLETED++;
             progressBar.setProgress(PROGRESS);
+            if(((TextView) findViewById(R.id.app_bar_main_quiz_score))!=null)
+            ((TextView) findViewById(R.id.app_bar_main_quiz_score)).setText(PROGRESS/10+"/10");
             AnswerButton1.setText("");
             AnswerButton2.setText("");
             AnswerButton3.setText("");
@@ -292,6 +310,8 @@ public class QuizActivity extends AppCompatActivity {
                 intentToStartResult.putExtra("Category", CATEGORY_PASSED);
                 NUMBER_QUESTIONS_COMPLETED=0;
                 progressBar.setProgress(0);
+                if(((TextView) findViewById(R.id.app_bar_main_quiz_score))!=null)
+                ((TextView) findViewById(R.id.app_bar_main_quiz_score)).setText("0/10");
                 PROGRESS=0;
                 NUMBER_CORRECT=0;
                 startActivity(intentToStartResult);
@@ -311,6 +331,8 @@ public class QuizActivity extends AppCompatActivity {
             PROGRESS+=10;
             NUMBER_QUESTIONS_COMPLETED++;
             progressBar.setProgress(PROGRESS);
+            if(((TextView) findViewById(R.id.app_bar_main_quiz_score))!=null)
+            ((TextView) findViewById(R.id.app_bar_main_quiz_score)).setText(PROGRESS/10+"/10");
             AnswerButton1.setText("");
             AnswerButton2.setText("");
             AnswerButton3.setText("");
@@ -333,6 +355,8 @@ public class QuizActivity extends AppCompatActivity {
                 intentToStartResult.putExtra("Category", CATEGORY_PASSED);
                 NUMBER_QUESTIONS_COMPLETED=0;
                 progressBar.setProgress(0);
+                if(((TextView) findViewById(R.id.app_bar_main_quiz_score))!=null)
+                ((TextView) findViewById(R.id.app_bar_main_quiz_score)).setText("0/10");
                 PROGRESS=0;
                 NUMBER_CORRECT=0;
                 startActivity(intentToStartResult);
@@ -352,6 +376,8 @@ public class QuizActivity extends AppCompatActivity {
             PROGRESS+=10;
             NUMBER_QUESTIONS_COMPLETED++;
             progressBar.setProgress(PROGRESS);
+            if(((TextView) findViewById(R.id.app_bar_main_quiz_score))!=null)
+            ((TextView) findViewById(R.id.app_bar_main_quiz_score)).setText(PROGRESS/10+"/10");
             AnswerButton1.setText("");
             AnswerButton2.setText("");
             AnswerButton3.setText("");
@@ -374,6 +400,8 @@ public class QuizActivity extends AppCompatActivity {
                 intentToStartResult.putExtra("Category", CATEGORY_PASSED);
                 NUMBER_QUESTIONS_COMPLETED=0;
                 progressBar.setProgress(0);
+                if(((TextView) findViewById(R.id.app_bar_main_quiz_score))!=null)
+                ((TextView) findViewById(R.id.app_bar_main_quiz_score)).setText("0/10");
                 PROGRESS=0;
                 NUMBER_CORRECT=0;
                 startActivity(intentToStartResult);
@@ -393,6 +421,8 @@ public class QuizActivity extends AppCompatActivity {
             PROGRESS+=10;
             NUMBER_QUESTIONS_COMPLETED++;
             progressBar.setProgress(PROGRESS);
+            if(((TextView) findViewById(R.id.app_bar_main_quiz_score))!=null)
+            ((TextView) findViewById(R.id.app_bar_main_quiz_score)).setText(PROGRESS/10+"/10");
             AnswerButton1.setText("");
             AnswerButton2.setText("");
             AnswerButton3.setText("");
@@ -415,6 +445,8 @@ public class QuizActivity extends AppCompatActivity {
                 intentToStartResult.putExtra("Category", CATEGORY_PASSED);
                 NUMBER_QUESTIONS_COMPLETED=0;
                 progressBar.setProgress(0);
+                if(((TextView) findViewById(R.id.app_bar_main_quiz_score))!=null)
+                ((TextView) findViewById(R.id.app_bar_main_quiz_score)).setText(PROGRESS/10+"/10");
                 PROGRESS=0;
                 NUMBER_CORRECT=0;
                 startActivity(intentToStartResult);
@@ -577,6 +609,8 @@ public class QuizActivity extends AppCompatActivity {
                    public void onClick(DialogInterface dialog, int which) {
                        NUMBER_QUESTIONS_COMPLETED=0;
                        progressBar.setProgress(0);
+                       if(((TextView) findViewById(R.id.app_bar_main_quiz_score))!=null)
+                       ((TextView) findViewById(R.id.app_bar_main_quiz_score)).setText("0/10");
                        PROGRESS=0;
                        NUMBER_CORRECT=0;
                        finish();

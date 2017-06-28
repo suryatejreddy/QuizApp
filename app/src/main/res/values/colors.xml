@@ -3,6 +3,10 @@
     <color name="colorPrimary">#D23C3F</color>
     <color name="colorPrimaryDark">#344 </color>
     <color name="colorAccent">#FFFFFF</color>
+    <color name="primary">#E43F3F</color>
+    <color name="primary_dark">#E12929</color>
+    <color name="primary_darker">#CC1D1D</color>
+    <color name="accent">#FFFFFF</color>
     <color name="activity_red_background">#D23C3F</color>
     <color name="activity_grey_background">#535655</color>
     <color name="material_red">#CA3433</color>

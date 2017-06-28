@@ -335,7 +335,7 @@ public class AccountActivity extends AppCompatActivity {
                                     }
                                     else
                                     {
-                                        Log.d("database", "Couldnt delete account");
+                                        Log.d("database", "Couldn't delete account");
                                     }
 
                                     progressDialog.dismiss();

@@ -241,14 +241,12 @@ public class QuizActivity extends AppCompatActivity {
                             builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
-                                    Intent intentToStartMain=new Intent(getApplicationContext(),MainActivity.class);
                                     NUMBER_QUESTIONS_COMPLETED=0;
                                     progressBar.setProgress(0);
                                     if(((TextView) findViewById(R.id.app_bar_main_quiz_score))!=null)
                                     ((TextView) findViewById(R.id.app_bar_main_quiz_score)).setText("0/10");
                                     PROGRESS=0;
                                     NUMBER_CORRECT=0;
-                                    startActivity(intentToStartMain);
                                     finish();
                                 }
                             });

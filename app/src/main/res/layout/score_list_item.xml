@@ -28,20 +28,20 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/text_view_date"
-            android:gravity="start"
-            android:textColor="@color/black"
-            android:fontFamily="sans-serif"
-            android:textSize="20sp"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/text_view_category"
             android:fontFamily="sans-serif-condensed"
             android:textAllCaps="false"
             android:textColor="@color/black"
             android:textSize="30sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/text_view_date"
+            android:gravity="start"
+            android:textColor="@color/black"
+            android:fontFamily="sans-serif"
+            android:textSize="20sp"/>
 
 
     </LinearLayout>

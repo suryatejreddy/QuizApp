@@ -117,7 +117,7 @@ public class ProfileActivity extends AppCompatActivity implements ProfileCustomA
 //
 //        if (cursor1.moveToFirst()) {
 //            while (!cursor1.isAfterLast()) {
-//                long id = cursor1.getLong(cursor1.getColumnIndex(ScoreContract.ScoreEntry._ID));
+//                long id = cursor1.getLong(cursor1.getColumnIndex(ScoreContract.ScoreE ntry._ID));
 //                String categ = cursor1.getString(cursor1.getColumnIndex(ScoreContract.ScoreEntry.COLUMN_CATEGORY));
 //                String score = cursor1.getString(cursor1.getColumnIndex(ScoreContract.ScoreEntry.COLUMN_GAME_SCORE));
 //                String time = cursor1.getString(cursor1.getColumnIndex(ScoreContract.ScoreEntry.COLUMN_TIMESTAMP));

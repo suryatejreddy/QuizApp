@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/activity_grey_background">
+
+
+    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/category_card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        card_view:contentPadding="10dp"
+        android:layout_gravity="center"
+        card_view:cardCornerRadius="10dp"
+        android:layout_margin="@dimen/card_margin"
+        card_view:cardElevation="10dp"
+        card_view:cardBackgroundColor= "@color/activity_red_background">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/text_view_question"
+                android:gravity="start"
+                android:textColor="@color/black"
+                android:fontFamily="sans-serif"
+                android:textSize="20sp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:padding="5dp"
+                    android:src="@drawable/ic_check_mark"
+                    android:layout_marginRight="5dp"
+                    android:id="@+id/image_view_result"/>
+
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/text_view_answer"
+                android:fontFamily="sans-serif-condensed"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="30sp"/>
+
+
+
+
+        </LinearLayout>
+        </LinearLayout>
+
+
+        </LinearLayout>
+
+
+        </android.support.v7.widget.CardView>
+
+
+
+</LinearLayout>

@@ -39,6 +39,22 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
+
+class QuestionObject
+{
+    String question;
+    String correctAnswer;
+    boolean result;
+
+    public QuestionObject(String q, String c, boolean r)
+    {
+        this.question=q;
+        this.correctAnswer=c;
+        this.result=r;
+    }
+}
+
+
 public class QuizActivity extends AppCompatActivity {
 
 
@@ -80,6 +96,10 @@ public class QuizActivity extends AppCompatActivity {
     private static String[] QUESTIONS;
     private static List<String[]> WRONG_ANSWERS_LIST;
 
+    private int INDEX_FOR_QUIZ_LIST;
+
+    public static List<QuestionObject> QUIZ_QUESTIONS_LIST;
+
 
     private static boolean buttonNextClicked=true;
 
@@ -88,6 +108,9 @@ public class QuizActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
 
+
+
+        QUIZ_QUESTIONS_LIST=new ArrayList<QuestionObject>();
 
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(R.layout.action_bar_quiz);
@@ -282,8 +305,14 @@ public class QuizActivity extends AppCompatActivity {
             if(CURRENT_CORRECT_POSITION==1)
             {
                 NUMBER_CORRECT++;
+                QUIZ_QUESTIONS_LIST.add(new QuestionObject(Html.fromHtml(QUESTIONS[INDEX_FOR_QUIZ_LIST]).toString(), Html.fromHtml(CORRECT_ANSWERS[INDEX_FOR_QUIZ_LIST]).toString(), true));
+            }
+            else
+            {
+                QUIZ_QUESTIONS_LIST.add(new QuestionObject(Html.fromHtml(QUESTIONS[INDEX_FOR_QUIZ_LIST]).toString(), Html.fromHtml(CORRECT_ANSWERS[INDEX_FOR_QUIZ_LIST]).toString(), false));
             }
             PROGRESS+=10;
+            INDEX_FOR_QUIZ_LIST++;
             NUMBER_QUESTIONS_COMPLETED++;
             progressBar.setProgress(PROGRESS);
             if(((TextView) findViewById(R.id.app_bar_main_quiz_score))!=null)
@@ -327,8 +356,14 @@ public class QuizActivity extends AppCompatActivity {
             if(CURRENT_CORRECT_POSITION==2)
             {
                 NUMBER_CORRECT++;
+                QUIZ_QUESTIONS_LIST.add(new QuestionObject(Html.fromHtml(QUESTIONS[INDEX_FOR_QUIZ_LIST]).toString(), Html.fromHtml(CORRECT_ANSWERS[INDEX_FOR_QUIZ_LIST]).toString(), true));
+            }
+            else
+            {
+                QUIZ_QUESTIONS_LIST.add(new QuestionObject(Html.fromHtml(QUESTIONS[INDEX_FOR_QUIZ_LIST]).toString(), Html.fromHtml(CORRECT_ANSWERS[INDEX_FOR_QUIZ_LIST]).toString(), false));
             }
             PROGRESS+=10;
+            INDEX_FOR_QUIZ_LIST++;
             NUMBER_QUESTIONS_COMPLETED++;
             progressBar.setProgress(PROGRESS);
             if(((TextView) findViewById(R.id.app_bar_main_quiz_score))!=null)
@@ -372,8 +407,14 @@ public class QuizActivity extends AppCompatActivity {
             if(CURRENT_CORRECT_POSITION==3)
             {
                 NUMBER_CORRECT++;
+                QUIZ_QUESTIONS_LIST.add(new QuestionObject(Html.fromHtml(QUESTIONS[INDEX_FOR_QUIZ_LIST]).toString(), Html.fromHtml(CORRECT_ANSWERS[INDEX_FOR_QUIZ_LIST]).toString(), true));
+            }
+            else
+            {
+                QUIZ_QUESTIONS_LIST.add(new QuestionObject(Html.fromHtml(QUESTIONS[INDEX_FOR_QUIZ_LIST]).toString(), Html.fromHtml(CORRECT_ANSWERS[INDEX_FOR_QUIZ_LIST]).toString(), false));
             }
             PROGRESS+=10;
+            INDEX_FOR_QUIZ_LIST++;
             NUMBER_QUESTIONS_COMPLETED++;
             progressBar.setProgress(PROGRESS);
             if(((TextView) findViewById(R.id.app_bar_main_quiz_score))!=null)
@@ -417,8 +458,14 @@ public class QuizActivity extends AppCompatActivity {
             if(CURRENT_CORRECT_POSITION==4)
             {
                 NUMBER_CORRECT++;
+                QUIZ_QUESTIONS_LIST.add(new QuestionObject(Html.fromHtml(QUESTIONS[INDEX_FOR_QUIZ_LIST]).toString(), Html.fromHtml(CORRECT_ANSWERS[INDEX_FOR_QUIZ_LIST]).toString(), true));
+            }
+            else
+            {
+                QUIZ_QUESTIONS_LIST.add(new QuestionObject(Html.fromHtml(QUESTIONS[INDEX_FOR_QUIZ_LIST]).toString(), Html.fromHtml(CORRECT_ANSWERS[INDEX_FOR_QUIZ_LIST]).toString(), false));
             }
             PROGRESS+=10;
+            INDEX_FOR_QUIZ_LIST++;
             NUMBER_QUESTIONS_COMPLETED++;
             progressBar.setProgress(PROGRESS);
             if(((TextView) findViewById(R.id.app_bar_main_quiz_score))!=null)
